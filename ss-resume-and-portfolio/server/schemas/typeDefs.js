@@ -11,7 +11,9 @@ const typeDefs = gql`
   }
 
   type Query {
-    Clients: [Client]
+    clients: [Client]
+    client(id: ID!): Client
+    thisClient: Client
   }
 
   type Mutation {
