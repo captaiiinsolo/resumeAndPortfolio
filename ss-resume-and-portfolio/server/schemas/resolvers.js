@@ -37,7 +37,7 @@ const resolvers = {
         },
 
         deleteClient: async (parent, { _id }) => {
-            return await findByIdAndRemove(_id);
+            return await Client.findByIdAndRemove(_id);
         },
 
     }
