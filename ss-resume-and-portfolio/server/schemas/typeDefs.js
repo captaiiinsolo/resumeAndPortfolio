@@ -2,7 +2,7 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type Client {
-    id: ID!
+    _id: ID!
     firstName: String
     lastName: String
     email: String
@@ -12,12 +12,12 @@ const typeDefs = gql`
 
   type Query {
     clients: [Client]
-    client(id: ID!): Client
+    client(_id: ID!): Client
     thisClient: Client
   }
 
   type Mutation {
-    createClient(firstName: String, lastName: String, email: String, phone: String, companyName: String): Client
+    createClient(_id: ID!, firstName: String, lastName: String, email: String, phone: String, companyName: String): Client
   }
   `;
 

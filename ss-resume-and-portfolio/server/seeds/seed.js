@@ -28,7 +28,7 @@ connection.once('open', async () => {
     for (let i = 0; i < 5; i++) {
         clients.push({
             userType: 'client',
-            fistName: faker.person.firstName(),
+            firstName: faker.person.firstName(),
             lastName: faker.person.lastName(),
             email: faker.internet.email(),
             phone: faker.phone.number(),
