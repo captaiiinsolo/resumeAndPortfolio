@@ -9,13 +9,13 @@ const clientSchema = new Schema(
 
         firstName: {
             type: String,
-            required: true,
+            required: [true, "A first name is required"],
             trim: true
         },
 
         lastName: {
             type: String,
-            required: true,
+            required: [true, "A last name is required"],
             trim: true
         },
 
@@ -32,13 +32,19 @@ const clientSchema = new Schema(
 
         phone: {
             type: String,
-            required: true,
+            required: [true, "A phone number is required"],
             trim: true
         },
 
         companyName: {
             type: String,
             required: true,
+            trim: true
+        },
+
+        message: {
+            type: String,
+            required: [true, "A message is required"],
             trim: true
         },
     },

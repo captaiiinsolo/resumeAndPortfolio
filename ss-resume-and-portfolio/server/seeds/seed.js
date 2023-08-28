@@ -33,6 +33,7 @@ connection.once('open', async () => {
             email: faker.internet.email(),
             phone: faker.phone.number(),
             companyName: faker.company.name(),
+            message: faker.lorem.paragraphs({min: 1, max: 5}),
         });
     }
 
