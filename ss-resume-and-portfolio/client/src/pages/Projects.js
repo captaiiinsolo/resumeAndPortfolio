@@ -1,6 +1,6 @@
 import MainNav from '../components/MainNav/MainNav';
 
-function Resume() {
+function Projects() {
     return (
         <div>
             <MainNav />
@@ -8,4 +8,4 @@ function Resume() {
     )
 }
 
-export default Resume;
+export default Projects;

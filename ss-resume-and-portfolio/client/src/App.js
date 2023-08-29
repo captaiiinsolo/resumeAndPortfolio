@@ -1,22 +1,22 @@
 import React from'react';
-import MainNav from './components/MainNav/MainNav';
-// import ReactDOM from 'react-dom/client';
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import Home from './pages/Home';
-// import Contact from './pages/Contact';
-// import Portfolio from './pages/Portfolio';
-// import Resume from './pages/Resume';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Contact from './pages/Contact';
+import Projects from './pages/Projects';
+import Resume from './pages/Resume';
 
 
 function App() {
-// const [activeKey, setActiveKey] = React.useState(null);
-
 
   return (
-    <div className="App">
-      <MainNav />
-      
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact-me" element={<Contact />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/resume" element={<Resume />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
