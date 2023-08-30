@@ -14,7 +14,7 @@ import HomeIcon from '@rsuite/icons/legacy/Home';
 function MainNav() {
     return (
         <Navbar appearance='subtle'>
-            <Navbar.Brand href='#'>
+            <Navbar.Brand>
                 Solomon D. Santos
             </Navbar.Brand>
             <Nav pullRight>
