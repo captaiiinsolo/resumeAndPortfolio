@@ -1,10 +1,14 @@
 import MainNav from '../components/MainNav/MainNav';
+import ProjectCards from '../components/Projects/ProjectCards';
 
 function Projects() {
     return (
-        <div>
+        <>
             <MainNav />
-        </div>
+            <ProjectCards />
+
+        </>
+
     )
 }
 

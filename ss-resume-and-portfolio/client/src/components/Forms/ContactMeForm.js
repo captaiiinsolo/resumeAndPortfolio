@@ -7,7 +7,7 @@ export default function ContactMeForm() {
     return (
         <FlexboxGrid style={{ marginTop: 'auto', marginBottom: '10%'}} justify='center'>
             <FlexboxGrid.Item colspan={8}>
-                <Panel bordered>
+                <Panel bordered shaded>
                     <Form layout='fluid'>
                         <Form.Group style={{ display: 'flex', justifyContent: 'space-between'}} controlId='fullname-1'>
                             {/* <Form.ControlLabel>First Name</Form.ControlLabel> */}
