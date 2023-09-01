@@ -10,10 +10,8 @@ export default function ContactMeForm() {
                 <Panel bordered shaded>
                     <Form layout='fluid'>
                         <Form.Group style={{ display: 'flex', justifyContent: 'space-between'}} controlId='fullname-1'>
-                            {/* <Form.ControlLabel>First Name</Form.ControlLabel> */}
                             <Form.Control name='firstname-1' placeholder='First Name' />
                             <Form.Control name='lastname-1' placeholder='Last Name' />
-
                         </Form.Group>
                         <Form.Group style={{ width: '50%'}} controlId='lastname-1'>
                         </Form.Group>

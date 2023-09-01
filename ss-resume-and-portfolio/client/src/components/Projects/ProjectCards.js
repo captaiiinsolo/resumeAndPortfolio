@@ -1,28 +1,33 @@
-import { Panel, Placeholder, Row, Col} from 'rsuite';
+import { Panel } from "rsuite";
 
 function ProjectCards(props) {
-    const ProjectCard = props => (
-        <Panel {...props} bordered shaded header={props.name}>
-            <Placeholder.Paragraph />
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center'}}>
+      <Panel
+        bordered
+        bodyFill
+        shaded
+        style={{ display: "inline-block", width: 240, marginBottom: "10px" }}
+      >
+        <img
+          src={props.image}
+          alt={props.title}
+          style={{
+            height: "240px",
+            display: "block",
+            marginLeft: "auto",
+            marginRight: "auto",
+            width: "100%",
+          }}
+        />
+        <Panel header={props.name}>
+          <p>
+            <small>{props.description}</small>
+          </p>
         </Panel>
-    );
-
-    return (
-        <Row>
-            <Col md={6} sm={12}>
-                <ProjectCard />
-            </Col>
-            <Col md={6} sm={12}>
-                <ProjectCard />
-            </Col>
-            <Col md={6} sm={12}>
-                <ProjectCard />
-            </Col>
-            <Col md={6} sm={12}>
-                <ProjectCard />
-            </Col>
-        </Row>
-    )
+      </Panel>
+    </div>
+  );
 }
 
 export default ProjectCards;
