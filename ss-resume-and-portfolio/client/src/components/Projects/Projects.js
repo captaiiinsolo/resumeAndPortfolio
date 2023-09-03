@@ -7,6 +7,7 @@ const bulletJournal = {
     link: "https://bullet-journal.herokuapp.com/",
     image: require("../../assets/images/projectImages/bulletJournal.png"),
     id: 1,
+    git: "https://github.com/megellman/bullet-journal",
 };
 
 const medTech = {
@@ -15,6 +16,7 @@ const medTech = {
     link: "https://medtech.herokuapp.com/",
     image: require("../../assets/images/projectImages/medTech.png"),
     id: 2,
+    git: "https://github.com/joshmatsumoto/medTech",
 };
 
 const fullSpectrum = {
@@ -23,11 +25,12 @@ const fullSpectrum = {
     link: "https://captaiiinsolo.github.io/jobDashboardProject/",
     image: require("../../assets/images/projectImages/fullSpectrum.png"),
     id: 3,
+    git: "https://github.com/captaiiinsolo/jobDashboardProject",
 }
 
 function Project() {
     return (
-      <div>
+      <div style={{ marginLeft: '3rem', marginRight: '3rem', padding: '1rem'}}>
         <Row>
           <Col lg={6} md={8} sm={24} xs={24}>
             <ProjectCards
@@ -35,6 +38,7 @@ function Project() {
               description={bulletJournal.description}
               link={bulletJournal.link}
               image={bulletJournal.image}
+              git={bulletJournal.git}
             />
           </Col>
 
@@ -44,6 +48,7 @@ function Project() {
               description={fullSpectrum.description}
               link={fullSpectrum.link}
               image={fullSpectrum.image}
+              git={fullSpectrum.git}
             />
           </Col>
           <Col lg={6} md={8} sm={24} xs={24}>
@@ -52,6 +57,7 @@ function Project() {
               description={medTech.description}
               link={medTech.link}
               image={medTech.image}
+              git={medTech.git}
             />
           </Col>
           <Col lg={6} md={8} sm={24} xs={24}>
@@ -60,52 +66,54 @@ function Project() {
               description={bulletJournal.description}
               link={bulletJournal.link}
               image={bulletJournal.image}
+              git={bulletJournal.git}
             />
           </Col>
 
-          <Col lg={6} md={8} sm={24} xs={24}>
-            <ProjectCards
-              name={fullSpectrum.name}
-              description={fullSpectrum.description}
-              link={fullSpectrum.link}
-              image={fullSpectrum.image}
-            />
-          </Col>
-
-          <Col lg={6} md={8} sm={24} xs={24}>
+          {/* <Col lg={6} md={8} sm={24} xs={24}>
             <ProjectCards
               name={medTech.name}
               description={medTech.description}
               link={medTech.link}
               image={medTech.image}
             />
-          </Col>
-          <Col lg={6} md={8} sm={24} xs={24}>
-            <ProjectCards
-              name={bulletJournal.name}
-              description={bulletJournal.description}
-              link={bulletJournal.link}
-              image={bulletJournal.image}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={24} xs={24}>
-            <ProjectCards
-              name={fullSpectrum.name}
-              description={fullSpectrum.description}
-              link={fullSpectrum.link}
-              image={fullSpectrum.image}
-            />
-          </Col>
-
-          <Col lg={6} md={8} sm={24} xs={24}>
-            <ProjectCards
-              name={medTech.name}
-              description={medTech.description}
-              link={medTech.link}
-              image={medTech.image}
-            />
-          </Col>
+          </Col> */}
         </Row>
+        {/* <Row>
+        <Col lg={6} md={8} sm={24} xs={24}>
+            <ProjectCards
+              name={fullSpectrum.name}
+              description={fullSpectrum.description}
+              link={fullSpectrum.link}
+              image={fullSpectrum.image}
+            />
+          </Col>
+
+          <Col lg={6} md={8} sm={24} xs={24}>
+            <ProjectCards
+              name={medTech.name}
+              description={medTech.description}
+              link={medTech.link}
+              image={medTech.image}
+            />
+          </Col>
+          <Col lg={6} md={8} sm={24} xs={24}>
+            <ProjectCards
+              name={bulletJournal.name}
+              description={bulletJournal.description}
+              link={bulletJournal.link}
+              image={bulletJournal.image}
+            />
+          </Col>
+          <Col lg={6} md={8} sm={24} xs={24}>
+            <ProjectCards
+              name={fullSpectrum.name}
+              description={fullSpectrum.description}
+              link={fullSpectrum.link}
+              image={fullSpectrum.image}
+            />
+          </Col>
+        </Row> */}
       </div>
     );
 
