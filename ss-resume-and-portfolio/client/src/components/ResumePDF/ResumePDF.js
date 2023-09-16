@@ -1,12 +1,10 @@
 import pdf from '../../assets/resume/Resume.pdf';
 import { useState } from'react';
-import { FlexboxGrid, Container, Grid, Row, Col, Button, IconButton, ButtonGroup, Divider } from 'rsuite';
+import { FlexboxGrid, Container, IconButton, ButtonGroup } from 'rsuite';
 import PagePreviousIcon from '@rsuite/icons/PagePrevious';
 import PageNextIcon from '@rsuite/icons/PageNext';
-
-
 import { pdfjs, Document, Page } from'react-pdf';
-import FlexboxGridItem from 'rsuite/esm/FlexboxGrid/FlexboxGridItem';
+
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.js',
