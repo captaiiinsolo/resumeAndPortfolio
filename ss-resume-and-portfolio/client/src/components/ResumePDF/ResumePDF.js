@@ -36,28 +36,36 @@ const toPrevPage = () => {
 };
     return (
       <Container>
-           <FlexboxGrid align='middle' justify="center">
-        <FlexboxGrid.Item>
-          <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
-            <Page
-              pageNumber={pageNumber}
-              renderAnnotationLayer={false}
-              renderTextLayer={false}
-            />
-          </Document>
-        </FlexboxGrid.Item>
-      </FlexboxGrid>
-      <FlexboxGrid justify="center">
-        <FlexboxGrid.Item>
-          <ButtonGroup>
-            <IconButton appearance='subtle' icon={<PagePreviousIcon />} onClick={toPrevPage} disabled={pageNumber === 1} />
-            <IconButton appearance='subtle' icon={<PageNextIcon />} onClick={toNextPage} disabled={pageNumber === numPages} />
-          </ButtonGroup>
-        </FlexboxGrid.Item>
-      </FlexboxGrid>
+        <FlexboxGrid align="middle" justify="center">
+          <FlexboxGrid.Item>
+            <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
+              <Page
+                pageNumber={pageNumber}
+                renderAnnotationLayer={false}
+                renderTextLayer={false}
+              />
+            </Document>
+          </FlexboxGrid.Item>
+        </FlexboxGrid>
+        <FlexboxGrid justify="center">
+          <FlexboxGrid.Item>
+            <ButtonGroup>
+              <IconButton
+                appearance="subtle"
+                icon={<PagePreviousIcon />}
+                onClick={toPrevPage}
+                disabled={pageNumber === 1}
+              />
+              <IconButton
+                appearance="subtle"
+                icon={<PageNextIcon />}
+                onClick={toNextPage}
+                disabled={pageNumber === numPages}
+              />
+            </ButtonGroup>
+          </FlexboxGrid.Item>
+        </FlexboxGrid>
       </Container>
-
- 
     );
 }
 
