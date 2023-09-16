@@ -11,7 +11,7 @@ export default function ContactMeForm() {
       style={{ marginTop: "auto", marginBottom: "10%" }}
       justify="center"
     >
-      <FlexboxGrid.Item colspan={6} lg={4}>
+      <FlexboxGrid.Item colspan={8}>
         <Panel bordered shaded>
           <Form layout="fluid">
             <Form.Group controlId="firstname-1">
