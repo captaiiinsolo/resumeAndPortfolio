@@ -50,8 +50,8 @@ const toPrevPage = () => {
       <FlexboxGrid justify="center">
         <FlexboxGrid.Item>
           <ButtonGroup>
-            <IconButton icon={<PagePreviousIcon />} onClick={toPrevPage} disabled={pageNumber === 1} />
-            <IconButton icon={<PageNextIcon />} onClick={toNextPage} disabled={pageNumber === numPages} />
+            <IconButton appearance='subtle' icon={<PagePreviousIcon />} onClick={toPrevPage} disabled={pageNumber === 1} />
+            <IconButton appearance='subtle' icon={<PageNextIcon />} onClick={toNextPage} disabled={pageNumber === numPages} />
           </ButtonGroup>
         </FlexboxGrid.Item>
       </FlexboxGrid>
