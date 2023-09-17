@@ -34,7 +34,7 @@ const toPrevPage = () => {
    }
 };
     return (
-      <Container style={{ marginTop: '5rem'}}>
+      <Container style={{ marginTop: '3rem'}}>
         <FlexboxGrid align="middle" justify="center">
           <FlexboxGrid.Item>
             <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
@@ -47,7 +47,7 @@ const toPrevPage = () => {
             </Document>
           </FlexboxGrid.Item>
         </FlexboxGrid>
-        <FlexboxGrid justify="center">
+        <FlexboxGrid justify="center" style={{ marginBottom: '5rem'}}>
           <FlexboxGrid.Item>
             <ButtonGroup>
               <IconButton
