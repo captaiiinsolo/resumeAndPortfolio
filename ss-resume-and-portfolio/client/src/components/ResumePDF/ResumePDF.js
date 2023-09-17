@@ -1,7 +1,8 @@
 import pdf from '../../assets/resume/Resume.pdf';
 import { useState } from'react';
-import { FlexboxGrid, Container, IconButton, ButtonGroup } from 'rsuite';
+import { FlexboxGrid, Container, IconButton, ButtonGroup, Whisper, Tooltip } from 'rsuite';
 import PagePreviousIcon from '@rsuite/icons/PagePrevious';
+import FileDownloadIcon from '@rsuite/icons/FileDownload';
 import PageNextIcon from '@rsuite/icons/PageNext';
 import { pdfjs, Document, Page } from'react-pdf';
 
@@ -33,7 +34,7 @@ const toPrevPage = () => {
    }
 };
     return (
-      <Container>
+      <Container style={{ marginTop: '5rem'}}>
         <FlexboxGrid align="middle" justify="center">
           <FlexboxGrid.Item>
             <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
@@ -41,6 +42,7 @@ const toPrevPage = () => {
                 pageNumber={pageNumber}
                 renderAnnotationLayer={false}
                 renderTextLayer={false}
+                width={750}
               />
             </Document>
           </FlexboxGrid.Item>
@@ -54,6 +56,23 @@ const toPrevPage = () => {
                 onClick={toPrevPage}
                 disabled={pageNumber === 1}
               />
+             
+             <Whisper
+              followCursor
+              placement="bottom"
+              controlId="control-id-hover"
+              trigger="hover"
+              speaker={<Tooltip>Click here to download my resume!</Tooltip>}
+             >
+             <IconButton
+                appearance='subtle'
+                icon={<FileDownloadIcon />}
+                href={pdf}
+                download='SolomonSantos_Resume.pdf'
+                target='_blank'
+                rel='noreferrer'
+              />
+             </Whisper>
               <IconButton
                 appearance="subtle"
                 icon={<PageNextIcon />}

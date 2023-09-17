@@ -10,7 +10,7 @@ function Contact() {
                     <MainNav />
                 </Header>
                 <Content>
-                    <h1 style={{ textAlign: 'center', margin: '20px', padding: '20px'}}>Contact Me</h1>
+                    <h1 style={{ textAlign: 'center', margin: '5rem'}}>Contact Me</h1>
                     <ContactMeForm />
                 </Content>
                 <Footer>
