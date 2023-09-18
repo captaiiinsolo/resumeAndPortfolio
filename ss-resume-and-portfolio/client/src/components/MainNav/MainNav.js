@@ -7,7 +7,7 @@ import SendIcon from '@rsuite/icons/Send';
 
 function MainNav() {
   const styles = {
-    width: 240,
+    width: 160,
     display: 'inline-table',
     marginRight: 10
   };
@@ -26,10 +26,10 @@ function MainNav() {
               <Nav.Item href='/' eventKey='1' icon={<HomeIcon />}>
                 Home
               </Nav.Item>
-              <Nav.Item href='/resume' eventKey='2' icon={<CharacterAuthorizeIcon />}>
+              <Nav.Item href='/resume' eventKey='2' icon={<CharacterAuthorizeIcon  />}>
                 Resume
               </Nav.Item>
-              <Nav.Item href='/projects' eventKey='3' icon={<ProjectIcon />}>
+              <Nav.Item href='/projects' eventKey='3' icon={<ProjectIcon  />}>
                 Projects
               </Nav.Item>
               <Nav.Item href='/contact-me' eventKey='4' icon={<SendIcon />}>
