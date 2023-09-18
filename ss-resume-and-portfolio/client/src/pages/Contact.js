@@ -12,7 +12,7 @@ function Contact() {
           <MainNav />
           <Container>
             <Content>
-              <h1 style={{ textAlign: "center", margin: "5rem" }}>
+              <h1>
                 Contact Me
               </h1>
               <ContactMeForm />

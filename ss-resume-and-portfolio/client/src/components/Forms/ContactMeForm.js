@@ -7,10 +7,7 @@ const Textarea = React.forwardRef((props, ref) => (
 
 export default function ContactMeForm() {
   return (
-    <FlexboxGrid
-      style={{ marginTop: '5rem', marginBottom: "10%" }}
-      justify="center"
-    >
+    <FlexboxGrid>
       <FlexboxGrid.Item colspan={8}>
         <Panel bordered shaded>
           <Form layout="fluid">

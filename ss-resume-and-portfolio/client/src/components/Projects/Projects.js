@@ -30,7 +30,7 @@ const fullSpectrum = {
 
 function Project() {
     return (
-      <div style={{ marginLeft: '3rem', marginRight: '3rem', padding: '1rem'}}>
+      <div>
         <Row>
           <Col lg={6} md={8} sm={24} xs={24}>
             <ProjectCards

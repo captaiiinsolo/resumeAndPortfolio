@@ -14,7 +14,7 @@ function ProjectCards(props) {
         display: "flex",
         justifyContent: "center",
         marginTop: "5rem",
-        padding: "2rem",
+        
       }}
     >
       <Panel bordered bodyFill shaded style={{ width: 265 }}>

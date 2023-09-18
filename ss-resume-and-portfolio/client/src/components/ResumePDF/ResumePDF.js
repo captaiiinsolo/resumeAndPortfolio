@@ -35,7 +35,7 @@ const toPrevPage = () => {
 };
     return (
       <Container style={{ marginTop: '3rem'}}>
-        <FlexboxGrid align="middle" justify="center">
+        <FlexboxGrid >
           <FlexboxGrid.Item>
             <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
               <Page
