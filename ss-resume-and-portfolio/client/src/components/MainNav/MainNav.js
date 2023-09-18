@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Nav, Sidenav, Sidebar } from 'rsuite';
+import { Nav, Sidenav, Sidebar, Navbar } from 'rsuite';
 import HomeIcon from '@rsuite/icons/legacy/Home';
 import CharacterAuthorizeIcon from '@rsuite/icons/CharacterAuthorize';
 import ProjectIcon from '@rsuite/icons/Project';
@@ -16,12 +16,17 @@ function MainNav() {
 
   const GlobalNavToggle = ({ expand, onChange }) => {
     return (
-      <Nav pullRight>
-        <Nav.Item onClick={onChange} style={{ width: 56, textAlign: 'center'}}>
-          {expand ? <AngleLeftIcon /> : <AngleRightIcon />}
-        </Nav.Item>
-      </Nav>
-    )
+      <Navbar appearance='sublte'>
+        <Nav pullRight>
+          <Nav.Item
+            onClick={onChange}
+            style={{ width: 56, textAlign: "center" }}
+            icon={expand ? <AngleLeftIcon /> : <AngleRightIcon />}
+          >
+          </Nav.Item>
+        </Nav>
+      </Navbar>
+    );
   }
 
   const GlobalNav = ({ appearance, openKeys, expanded, onOpenChange, onExpand, ...navProps }) => {
@@ -33,7 +38,7 @@ function MainNav() {
       <div style={styles}>
         <Sidebar
           style={{ display: "flex", flexDirection: "column" }}
-          width={expand ? 260 : 56}
+          width={expand ? 185 : 56}
           collapsible
         >
           <Sidenav
