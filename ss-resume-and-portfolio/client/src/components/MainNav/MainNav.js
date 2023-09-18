@@ -4,6 +4,8 @@ import HomeIcon from '@rsuite/icons/legacy/Home';
 import CharacterAuthorizeIcon from '@rsuite/icons/CharacterAuthorize';
 import ProjectIcon from '@rsuite/icons/Project';
 import SendIcon from '@rsuite/icons/Send';
+import AngleLeftIcon from '@rsuite/icons/legacy/AngleLeft';
+import AngleRightIcon from '@rsuite/icons/legacy/AngleRight';
 
 function MainNav() {
   const styles = {
@@ -12,9 +14,19 @@ function MainNav() {
     marginRight: 10
   };
 
+  const GlobalNavToggle = ({ expand, onChange }) => {
+    return (
+      <Nav pullRight>
+        <Nav.Item onClick={onChange} style={{ width: 56, textAlign: 'center'}}>
+          {expand ? <AngleLeftIcon /> : <AngleRightIcon />}
+        </Nav.Item>
+      </Nav>
+    )
+  }
+
   const GlobalNav = ({ appearance, openKeys, expanded, onOpenChange, onExpand, ...navProps }) => {
 
-  const [expand] = React.useState(true);
+    const [expand, setExpand] = React.useState(false);
 
 
     return (
@@ -26,7 +38,7 @@ function MainNav() {
         >
           <Sidenav
             appearance={appearance}
-            expanded={expanded}
+            expanded={expand}
             openKeys={openKeys}
             onOpenChange={onOpenChange}
           >
@@ -50,8 +62,11 @@ function MainNav() {
                 </Nav.Item>
               </Nav>
             </Sidenav.Body>
-            <Sidenav.Toggle onToggle={onExpand} />
           </Sidenav>
+          <GlobalNavToggle
+            expand={expand}
+            onChange={() => setExpand(!expand)}
+          />
         </Sidebar>
       </div>
     );
