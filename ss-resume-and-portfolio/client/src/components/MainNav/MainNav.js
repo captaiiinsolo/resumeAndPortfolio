@@ -33,7 +33,7 @@ function MainNav() {
       <div style={styles}>
         <Sidebar
           style={{ display: "flex", flexDirection: "column" }}
-          width={expand ? 160 : 56}
+          width={expand ? 260 : 56}
           collapsible
         >
           <Sidenav
