@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Nav, Sidenav } from 'rsuite';
+import { Nav, Sidenav, Sidebar } from 'rsuite';
 import HomeIcon from '@rsuite/icons/legacy/Home';
 import CharacterAuthorizeIcon from '@rsuite/icons/CharacterAuthorize';
 import ProjectIcon from '@rsuite/icons/Project';
@@ -13,32 +13,46 @@ function MainNav() {
   };
 
   const GlobalNav = ({ appearance, openKeys, expanded, onOpenChange, onExpand, ...navProps }) => {
+
+  const [expand] = React.useState(true);
+
+
     return (
       <div style={styles}>
-        <Sidenav
-          appearance={appearance}
-          expanded={expanded}
-          openKeys={openKeys}
-          onOpenChange={onOpenChange}
+        <Sidebar
+          style={{ display: "flex", flexDirection: "column" }}
+          width={expand ? 160 : 56}
+          collapsible
         >
-          <Sidenav.Body>
-            <Nav {...navProps}>
-              <Nav.Item href='/' eventKey='1' icon={<HomeIcon />}>
-                Home
-              </Nav.Item>
-              <Nav.Item href='/resume' eventKey='2' icon={<CharacterAuthorizeIcon  />}>
-                Resume
-              </Nav.Item>
-              <Nav.Item href='/projects' eventKey='3' icon={<ProjectIcon  />}>
-                Projects
-              </Nav.Item>
-              <Nav.Item href='/contact-me' eventKey='4' icon={<SendIcon />}>
-                Contact Me
-              </Nav.Item>
-            </Nav>
-          </Sidenav.Body>
-          <Sidenav.Toggle onToggle={onExpand} />
-        </Sidenav>
+          <Sidenav
+            appearance={appearance}
+            expanded={expanded}
+            openKeys={openKeys}
+            onOpenChange={onOpenChange}
+          >
+            <Sidenav.Body>
+              <Nav {...navProps}>
+                <Nav.Item href="/" eventKey="1" icon={<HomeIcon />}>
+                  Home
+                </Nav.Item>
+                <Nav.Item
+                  href="/resume"
+                  eventKey="2"
+                  icon={<CharacterAuthorizeIcon />}
+                >
+                  Resumé
+                </Nav.Item>
+                <Nav.Item href="/projects" eventKey="3" icon={<ProjectIcon />}>
+                  Projects
+                </Nav.Item>
+                <Nav.Item href="/contact-me" eventKey="4" icon={<SendIcon />}>
+                  Contact Me
+                </Nav.Item>
+              </Nav>
+            </Sidenav.Body>
+            <Sidenav.Toggle onToggle={onExpand} />
+          </Sidenav>
+        </Sidebar>
       </div>
     );
   };
@@ -76,3 +90,5 @@ function MainNav() {
 }
 
 export default MainNav;
+
+

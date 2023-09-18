@@ -1,14 +1,13 @@
+import React from 'react';
 import MainNav from '../components/MainNav/MainNav';
 import ResumePDF from '../components/ResumePDF/ResumePDF';
-import { Container, Content, Sidebar } from 'rsuite';
+import { Container, Content } from 'rsuite';
 
 function Resume() {
     return (
       <div>
         <Container>
-          <Sidebar>
-            <MainNav />
-          </Sidebar>
+          <MainNav />
           <Container>
             <Content>
               <ResumePDF />

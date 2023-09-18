@@ -1,22 +1,21 @@
+import React from "react";
 import MainNav from "../components/MainNav/MainNav";
-import { Container, Content, Sidebar } from 'rsuite';
+import { Container, Content } from 'rsuite';
 
 
 function Home() {
-    return (
-      <div>
+  return (
+    <div>
+      <Container>
+        <MainNav />
         <Container>
-          <Sidebar>
-            <MainNav />
-          </Sidebar>
-          <Container>
-            <Content>
-              <h1>Home</h1>
-            </Content>
-          </Container>
+          <Content>
+            <h1>Home</h1>
+          </Content>
         </Container>
-      </div>
-    );
+      </Container>
+    </div>
+  );
 }
 
 export default Home;
