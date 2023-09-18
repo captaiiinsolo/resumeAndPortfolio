@@ -1,20 +1,22 @@
 import MainNav from '../components/MainNav/MainNav';
 import ResumePDF from '../components/ResumePDF/ResumePDF';
-import { Container, Content, Header } from 'rsuite';
+import { Container, Content, Sidebar } from 'rsuite';
 
 function Resume() {
     return (
-        
-           <Container>
-            <Header>
-                <MainNav />
-            </Header>
+      <div>
+        <Container>
+          <Sidebar>
+            <MainNav />
+          </Sidebar>
+          <Container>
             <Content>
-                <ResumePDF />
+              <ResumePDF />
             </Content>
-            </Container>
-        
-    )
+          </Container>
+        </Container>
+      </div>
+    );
 }
 
 export default Resume;

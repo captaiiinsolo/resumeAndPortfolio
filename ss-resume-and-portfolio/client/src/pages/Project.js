@@ -1,24 +1,24 @@
 import MainNav from '../components/MainNav/MainNav';
 import Project from '../components/Projects/Projects';
-import { Container, Content, Footer, Header } from 'rsuite';
+import { Container, Content, Footer, Sidebar } from 'rsuite';
 
 
 function Projects() {
     return (
-        <div>
+      <div>
         <Container>
-            <Header>
-                <MainNav />
-            </Header>
+          <Sidebar>
+            <MainNav />
+          </Sidebar>
+          <Container>
             <Content>
-                <Project />
+              <Project />
             </Content>
-            <Footer>
-            </Footer>
+          </Container>
+          <Footer></Footer>
         </Container>
-    </div>
-
-    )
+      </div>
+    );
 }
 
 export default Projects;

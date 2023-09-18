@@ -1,39 +1,78 @@
-import React from'react';
-import { Nav, Navbar } from 'rsuite';
+import React, { useEffect } from 'react';
+import { Nav, Sidenav } from 'rsuite';
 import HomeIcon from '@rsuite/icons/legacy/Home';
-import { MdWorkHistory, MdConnectWithoutContact, MdCode } from 'react-icons/md';
-// import { Link } from 'react-router-dom';
-
-// const NavLink = React.forwardRef(({ href, children, ...rest }, ref) => (
-//   <Link ref={ref} to={href} {...rest}>
-//     {children}
-//   </Link>
-// ));
-
-
+import CharacterAuthorizeIcon from '@rsuite/icons/CharacterAuthorize';
+import ProjectIcon from '@rsuite/icons/Project';
+import SendIcon from '@rsuite/icons/Send';
 
 function MainNav() {
+  const styles = {
+    width: 240,
+    display: 'inline-table',
+    marginRight: 10
+  };
 
-
+  const GlobalNav = ({ appearance, openKeys, expanded, onOpenChange, onExpand, ...navProps }) => {
     return (
-      <Navbar appearance="subtle">
-        <Navbar.Brand>
-          Solomon D. Santos
-        </Navbar.Brand>
-        <Nav pullRight>
-          <Nav.Item href="/" eventKey="1" icon={<HomeIcon />}>
-          </Nav.Item>
-          <Nav.Item href="/resume" icon={<MdWorkHistory />} eventKey="2">
-          </Nav.Item>
-          <Nav.Item href="/projects" icon={<MdCode />} eventKey="3">
-          </Nav.Item>
-          <Nav.Item href="/contact-me" icon={<MdConnectWithoutContact />} eventKey="4">
-          </Nav.Item>
-        </Nav>
-      </Navbar>
+      <div style={styles}>
+        <Sidenav
+          appearance={appearance}
+          expanded={expanded}
+          openKeys={openKeys}
+          onOpenChange={onOpenChange}
+        >
+          <Sidenav.Body>
+            <Nav {...navProps}>
+              <Nav.Item href='/' eventKey='1' icon={<HomeIcon />}>
+                Home
+              </Nav.Item>
+              <Nav.Item href='/resume' eventKey='2' icon={<CharacterAuthorizeIcon />}>
+                Resume
+              </Nav.Item>
+              <Nav.Item href='/projects' eventKey='3' icon={<ProjectIcon />}>
+                Projects
+              </Nav.Item>
+              <Nav.Item href='/contact-me' eventKey='4' icon={<SendIcon />}>
+                Contact Me
+              </Nav.Item>
+            </Nav>
+          </Sidenav.Body>
+          <Sidenav.Toggle onToggle={onExpand} />
+        </Sidenav>
+      </div>
     );
+  };
 
+  const [activeKey, setActiveKey] = React.useState('');
+  const [expanded, setExpand] = React.useState(false);
+
+  useEffect(() => {
+    // Get the current URL path
+    const currentPath = window.location.pathname;
+
+    // Map the path to the corresponding eventKey
+    const pathToEventKey = {
+      '/': '1',
+      '/resume': '2',
+      '/projects': '3',
+      '/contact-me': '4'
+    };
+
+    // Set the activeKey based on the current URL
+    setActiveKey(pathToEventKey[currentPath] || '');
+  }, []);
+
+  return (
+    <>
+      <GlobalNav
+        activeKey={activeKey}
+        onSelect={setActiveKey}
+        expanded={expanded}
+        onExpand={setExpand}
+        appearance='subtle'
+      />
+    </>
+  );
 }
 
 export default MainNav;
-
