@@ -1,6 +1,7 @@
 import React from "react";
 import MainNav from "../components/MainNav/MainNav";
-import { Container, Content } from 'rsuite';
+import { Container, Content, Header } from 'rsuite';
+import Biography from "../components/Biography/Biography";
 
 
 function Home() {
@@ -9,8 +10,10 @@ function Home() {
       <Container>
         <MainNav />
         <Container>
+          <Header>
+          </Header>
           <Content>
-            <h1>Home</h1>
+            <Biography />
           </Content>
         </Container>
       </Container>

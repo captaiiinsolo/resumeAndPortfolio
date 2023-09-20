@@ -9,7 +9,7 @@ import AngleRightIcon from '@rsuite/icons/legacy/AngleRight';
 
 function MainNav() {
   const styles = {
-    width: 160,
+    width: 56,
     display: 'inline-table',
     marginRight: 10
   };
@@ -38,7 +38,7 @@ function MainNav() {
       <div style={styles}>
         <Sidebar
           style={{ display: "flex", flexDirection: "column" }}
-          width={expand ? 185 : 56}
+          width={expand ? 160 : 56}
           collapsible
         >
           <Sidenav
