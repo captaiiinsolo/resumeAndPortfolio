@@ -4,6 +4,7 @@ import { Container, Content, Header } from 'rsuite';
 import Biography from "../components/Biography/Biography";
 import Welcome from "../components/Welcome/Welcome";
 import Stats from "../components/Stats/Stats";
+import DesignProcess from "../components/DesignProcess/DesignProcess";
 
 
 function Home() {
@@ -18,6 +19,7 @@ function Home() {
             <Welcome />
             <Biography />
             <Stats />
+            <DesignProcess />
           </Content>
         </Container>
       </Container>

@@ -69,51 +69,7 @@ function Project() {
               git={bulletJournal.git}
             />
           </Col>
-
-          {/* <Col lg={6} md={8} sm={24} xs={24}>
-            <ProjectCards
-              name={medTech.name}
-              description={medTech.description}
-              link={medTech.link}
-              image={medTech.image}
-            />
-          </Col> */}
         </Row>
-        {/* <Row>
-        <Col lg={6} md={8} sm={24} xs={24}>
-            <ProjectCards
-              name={fullSpectrum.name}
-              description={fullSpectrum.description}
-              link={fullSpectrum.link}
-              image={fullSpectrum.image}
-            />
-          </Col>
-
-          <Col lg={6} md={8} sm={24} xs={24}>
-            <ProjectCards
-              name={medTech.name}
-              description={medTech.description}
-              link={medTech.link}
-              image={medTech.image}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={24} xs={24}>
-            <ProjectCards
-              name={bulletJournal.name}
-              description={bulletJournal.description}
-              link={bulletJournal.link}
-              image={bulletJournal.image}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={24} xs={24}>
-            <ProjectCards
-              name={fullSpectrum.name}
-              description={fullSpectrum.description}
-              link={fullSpectrum.link}
-              image={fullSpectrum.image}
-            />
-          </Col>
-        </Row> */}
       </div>
     );
 
