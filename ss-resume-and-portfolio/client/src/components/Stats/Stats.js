@@ -1,6 +1,6 @@
 import { Grid, Row, Col, Progress, Panel } from 'rsuite';
 import { Icon } from '@rsuite/icons';
-import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiHtml5, SiJavascript, SiCss3, SiGit } from "react-icons/si";
+import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiHtml5, SiJavascript, SiCss3, SiGit, SiMysql } from "react-icons/si";
 
 const skills = [
     { id: 1, title: "MongoDB", percent: "80", color: "#00ED64", status: "active", icon: SiMongodb },
@@ -11,14 +11,14 @@ const skills = [
     { id: 6, title: "CSS", percent: "90", color: "#264DE4", status: "active", icon: SiCss3 },
     { id: 7, title: "HTML", percent: "95", color: "#F06529", status: "active", icon: SiHtml5 },
     { id: 8, title: "Git CLI", percent: "85", color: "#171515", status: "active", icon: SiGit },
-    // { id: 9, title: "MySQL", percent: "80", color: "#00758F" },
+    { id: 9, title: "MySQL", percent: "80", color: "#00758F", status: "active", icon: SiMysql },
   ];
 
 export default function Stats() {
   const style = {
-    width: 120,
+    width: 90,
     display: "inline-block",
-    margin: 10,
+    margin: '1rem',
     textAlign: "center",
   };
 
@@ -34,7 +34,7 @@ export default function Stats() {
     <Grid fluid>
       <Row style={{ margin: "3rem" }}>
         <Col lg={22} style={{ margin: "1rem 1.5rem" }}>
-          <Panel shaded style={{ display: 'flex', justifyContent: 'space-around' }}>{skillsList}</Panel>
+          <Panel shaded style={{ display: 'flex', justifyContent: 'center' }}>{skillsList}</Panel>
         </Col>
       </Row>
     </Grid>
