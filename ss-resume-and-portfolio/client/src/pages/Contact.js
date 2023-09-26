@@ -12,9 +12,6 @@ function Contact() {
           <MainNav />
           <Container>
             <Content>
-              <h1 style={{ display: 'flex', justifyContent: 'center'}}>
-                Contact Me
-              </h1>
               <ContactMeForm />
             </Content>
           </Container>

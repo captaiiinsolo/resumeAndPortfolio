@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, ButtonToolbar, Button, Input, FlexboxGrid, Panel } from "rsuite";
+import { Form, ButtonToolbar, Button, Input, Grid, Col, Row, Panel } from "rsuite";
 
 const Textarea = React.forwardRef((props, ref) => (
   <Input {...props} as="textarea" ref={ref} />
@@ -7,8 +7,11 @@ const Textarea = React.forwardRef((props, ref) => (
 
 export default function ContactMeForm() {
   return (
-    <FlexboxGrid justify='center'>
-      <FlexboxGrid.Item colspan={8}>
+    <Grid fluid>
+      <Row style={{ margin: "3rem", display: 'flex', justifyContent: 'center' }}>
+        {/* <Col xxl={8} xxlOffset={8} xl={8} xlOffset={8} lg={8} lgOffset={8} md={12} mdOffset={6} smHidden xsHidden style={{margin: '3rem 1.5rem'}}></Col> */}
+        <Col xxl={8} xl={8} lg={8} md={12} sm={22} xs={22} style={{margin: '3rem 1.5rem'}}>
+          <h3 style={{ textAlign: 'center', margin: '1rem 0'}}> Contact Me</h3>
         <Panel bordered shaded>
           <Form layout="fluid">
             <Form.Group controlId="firstname-1">
@@ -40,7 +43,9 @@ export default function ContactMeForm() {
             </ButtonToolbar>
           </Form>
         </Panel>
-      </FlexboxGrid.Item>
-    </FlexboxGrid>
+        </Col>
+        {/* <Col xxl={8} xxlOffset={8} xl={8} xlOffset={8} lg={8} lgOffset={8} md={12} mdOffset={6} smHidden xsHidden style={{margin: '3rem 1.5rem'}}></Col> */}
+      </Row>
+    </Grid>
   );
 }
