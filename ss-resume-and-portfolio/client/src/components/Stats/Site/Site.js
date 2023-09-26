@@ -11,7 +11,7 @@ export default function SiteStats() {
         forks_count: null,
         open_issues_count: null,
         watchers_count: null,
-        updated_at: null,
+        pushed_at: null,
     });
 
     const [siteCommits, setSiteCommits] = useState({
@@ -31,7 +31,7 @@ export default function SiteStats() {
                 forks_count: data.forks_count,
                 open_issues_count: data.open_issues_count,
                 watchers_count: data.watchers_count,
-                updated_at: data.updated_at,
+                pushed_at: data.pushed_at,
             });
         } catch (error) {
             console.error('Error fetching GitHub stats:', error);
@@ -55,7 +55,7 @@ export default function SiteStats() {
     useEffect(() => {
         getSiteStats();
         getSiteCommits();
-    }, );
+    }, []);
 
     const siteData = [
         {
@@ -84,7 +84,7 @@ export default function SiteStats() {
         },
         {
             label: 'Last Updated',
-            value: dayjs(siteStats.updated_at).format('MMMM DD, YYYY @ hh:mm A'),
+            value: dayjs(siteStats.pushed_at).format('MMMM DD, YYYY @ hh:mm A'),
         }
     ];
 
