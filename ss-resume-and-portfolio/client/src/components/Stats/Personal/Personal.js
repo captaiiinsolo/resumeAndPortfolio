@@ -87,9 +87,9 @@ const personalData = [
 
 export default function PersonalStats() {
   return (
-    <Table cellBordered autoHeight data={personalData}>
+    <Table bordered cellBordered autoHeight data={personalData}>
       <Column flexGrow={1} fullText>
-        <HeaderCell>Stats</HeaderCell>
+        <HeaderCell>Personal Stats</HeaderCell>
         <Cell dataKey="label" />
       </Column>
       <Column flexGrow={1} fullText align="right">

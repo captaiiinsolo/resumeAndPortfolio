@@ -1,13 +1,6 @@
 import { Grid, Row, Col, Placeholder, Panel, Carousel, } from 'rsuite';
 import PersonalStats from '../Stats/Personal/Personal';
-
-const styles = {
-  radioGroupLabel: {
-    padding: '8px 12px',
-    display: 'inline-block',
-    verticalAlign: 'middle'
-  }
-};
+import SiteStats from '../Stats/Site/Site';
 
 export default function Biography() {
   return (
@@ -38,12 +31,7 @@ export default function Biography() {
           style={{ margin: "2rem 1.5rem" }}
         >
           <Panel bodyFill>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <img
-                src="https://placehold.co/600x400"
-                alt="a placeholder for a bio pic"
-              />
-            </div>
+            <PersonalStats />
           </Panel>
         </Col>
       </Row>
@@ -62,14 +50,12 @@ export default function Biography() {
           smOffset={1}
           xs={22}
           xsOffset={1}
-          style={{ margin: "2rem 1.5rem" }}
+          style={{ margin: "0rem 1.5rem" }}
         >
-          
-            <Carousel placement='bottom' shape='bar'>
-              <PersonalStats />
+          <Panel>
+            <Placeholder rows={13} />
 
-            </Carousel>
-          
+          </Panel>
         </Col>
         <Col
           xxl={11}
@@ -83,15 +69,11 @@ export default function Biography() {
           style={{ margin: "2rem 1.5rem" }}
         >
           <Panel bodyFill>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <img
-                src="https://placehold.co/600x400"
-                alt="a placeholder for bio pic number 2"
-              />
-            </div>
+            <SiteStats />
           </Panel>
         </Col>
       </Row>
     </Grid>
   );
 }
+
