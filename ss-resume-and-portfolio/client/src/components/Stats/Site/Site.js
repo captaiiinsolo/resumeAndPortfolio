@@ -84,7 +84,7 @@ export default function SiteStats() {
         },
         {
             label: 'Last Updated',
-            value: dayjs(siteStats.updated_at).format('MMMM DD, YYYY'),
+            value: dayjs(siteStats.updated_at).format('MMMM DD, YYYY @ hh:mm A'),
         }
     ];
 
