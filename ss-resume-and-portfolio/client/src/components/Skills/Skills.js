@@ -2,7 +2,7 @@ import { Grid, Row, Col, Progress, Panel } from 'rsuite';
 import { Icon } from '@rsuite/icons';
 import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiHtml5, SiJavascript, SiCss3, SiGit, SiMysql } from "react-icons/si";
 
-const stats = [
+const myStats = [
     { id: 1, title: "MongoDB", percent: "80", color: "#00ED64", status: "active", icon: SiMongodb },
     { id: 2, title: "Express.js", percent: "75", color: "#68A063", status: "active", icon: SiExpress },
     { id: 3, title: "React.js", percent: "85", color: "61DBFB", status: "active", icon: SiReact },
@@ -23,7 +23,7 @@ export default function Skills() {
     textAlign: "center",
   };
 
-  const statsList = stats.map((stat) => (
+  const statsList = myStats.map((stat) => (
     <div style={style}>
       <Progress.Circle
         percent={stat.percent}

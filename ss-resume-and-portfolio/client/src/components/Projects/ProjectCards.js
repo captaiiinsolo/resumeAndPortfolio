@@ -11,13 +11,10 @@ function ProjectCards(props) {
   return (
     <div
       style={{
-        display: "flex",
-        justifyContent: "center",
-        marginTop: "5rem",
-        marginBottom: "5rem",
+        margin: '2rem 1rem 2rem 1rem',
       }}
     >
-      <Panel bordered bodyFill shaded style={{ width: 265 }}>
+      <Panel bodyFill shaded style={{ width: 275 }}>
         <img
           src={props.image}
           alt={props.title}

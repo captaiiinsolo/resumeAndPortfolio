@@ -1,78 +1,100 @@
 import ProjectCards from './ProjectCards';
-import { Row, Col } from 'rsuite'
+import { Grid, Row, Col, Panel } from 'rsuite'
 
-const bulletJournal = {
+const projects = [
+  {
+    id: 1,
     name: "Bullet Journal",
-    description: "A journaling application for individuals who are tired of carrying pen and paper.",
+    description:
+      "A journaling application for individuals who are tired of carrying pen and paper.",
     link: "https://bullet-journal.herokuapp.com/",
     image: require("../../assets/images/projectImages/bulletJournal.png"),
-    id: 1,
     git: "https://github.com/megellman/bullet-journal",
-};
+  },
 
-const medTech = {
+  {
+    id: 2,
     name: "MedTech",
-    description: "A medical CRM clone designed to better connect patients to their medical providers.",
+    description:
+      "A medical CRM clone designed to better connect patients to their medical providers.",
     link: "https://medtech.herokuapp.com/",
     image: require("../../assets/images/projectImages/medTech.png"),
-    id: 2,
     git: "https://github.com/joshmatsumoto/medTech",
-};
+  },
 
-const fullSpectrum = {
+  {
+    id: 3,
     name: "Full Spectrum",
-    description: "Your one stop shop for weather, jobs, and housing all in one place.",
+    description:
+      "Your one stop shop for weather, jobs, and housing all in one place.",
     link: "https://captaiiinsolo.github.io/jobDashboardProject/",
     image: require("../../assets/images/projectImages/fullSpectrum.png"),
-    id: 3,
     git: "https://github.com/captaiiinsolo/jobDashboardProject",
-}
+  },
 
-function Project() {
-    return (
-      <div>
-        <Row>
-          <Col lg={6} md={8} sm={24} xs={24}>
-            <ProjectCards
-              name={bulletJournal.name}
-              description={bulletJournal.description}
-              link={bulletJournal.link}
-              image={bulletJournal.image}
-              git={bulletJournal.git}
-            />
-          </Col>
+  {
+    id: 4,
+    name: "MedTech",
+    description:
+      "A medical CRM clone designed to better connect patients to their medical providers.",
+    link: "https://medtech.herokuapp.com/",
+    image: require("../../assets/images/projectImages/medTech.png"),
+    git: "https://github.com/joshmatsumoto/medTech",
+  },
 
-          <Col lg={6} md={8} sm={24} xs={24}>
-            <ProjectCards
-              name={fullSpectrum.name}
-              description={fullSpectrum.description}
-              link={fullSpectrum.link}
-              image={fullSpectrum.image}
-              git={fullSpectrum.git}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={24} xs={24}>
-            <ProjectCards
-              name={medTech.name}
-              description={medTech.description}
-              link={medTech.link}
-              image={medTech.image}
-              git={medTech.git}
-            />
-          </Col>
-          <Col lg={6} md={8} sm={24} xs={24}>
-            <ProjectCards
-              name={bulletJournal.name}
-              description={bulletJournal.description}
-              link={bulletJournal.link}
-              image={bulletJournal.image}
-              git={bulletJournal.git}
-            />
-          </Col>
-        </Row>
-      </div>
-    );
+  
+  {
+    id: 5,
+    name: "Bullet Journal",
+    description:
+      "A journaling application for individuals who are tired of carrying pen and paper.",
+    link: "https://bullet-journal.herokuapp.com/",
+    image: require("../../assets/images/projectImages/bulletJournal.png"),
+    git: "https://github.com/megellman/bullet-journal",
+  },
+  {
+    id: 6,
+    name: "Bullet Journal",
+    description:
+      "A journaling application for individuals who are tired of carrying pen and paper.",
+    link: "https://bullet-journal.herokuapp.com/",
+    image: require("../../assets/images/projectImages/bulletJournal.png"),
+    git: "https://github.com/megellman/bullet-journal",
+  },
+  {
+    id: 7,
+    name: "Bullet Journal",
+    description:
+      "A journaling application for individuals who are tired of carrying pen and paper.",
+    link: "https://bullet-journal.herokuapp.com/",
+    image: require("../../assets/images/projectImages/bulletJournal.png"),
+    git: "https://github.com/megellman/bullet-journal",
+  },
+];
 
-}
 
-export default Project;
+export default function MyProjects() {
+
+  const projectsList = projects.map((project) => (
+    <div style={{ display: "inline-flex" }}>
+      <Col>
+        <ProjectCards
+          name={project.name}
+          description={project.description}
+          link={project.link}
+          image={project.image}
+          git={project.git}
+        />
+      </Col>
+    </div>
+  ));
+
+  return (
+    <Grid fluid>
+      <Row style={{marginLeft: '5rem'}}>
+        {projectsList}
+      </Row>
+    </Grid>
+  );
+
+};
