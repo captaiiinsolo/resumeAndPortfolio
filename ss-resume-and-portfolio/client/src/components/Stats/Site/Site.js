@@ -41,7 +41,7 @@ export default function SiteStats() {
 
     const getSiteCommits = async () => {
         try {
-            const response = await client.get('/commits');
+            const response = await client.get('/commits?sha=main&per_page=9999');
             const data = response.data;
             setSiteCommits({
                 commits_count: data.length,
@@ -55,7 +55,7 @@ export default function SiteStats() {
     useEffect(() => {
         getSiteStats();
         getSiteCommits();
-    }, []);
+    }, );
 
     const siteData = [
         {
