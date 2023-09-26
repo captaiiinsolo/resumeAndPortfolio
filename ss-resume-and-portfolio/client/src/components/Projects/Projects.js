@@ -1,5 +1,7 @@
 import ProjectCards from './ProjectCards';
-import { Grid, Row, Col, Panel } from 'rsuite'
+import { Grid, Row, Col } from 'rsuite';
+
+
 
 const projects = [
   {
@@ -31,52 +33,13 @@ const projects = [
     image: require("../../assets/images/projectImages/fullSpectrum.png"),
     git: "https://github.com/captaiiinsolo/jobDashboardProject",
   },
-
-  {
-    id: 4,
-    name: "MedTech",
-    description:
-      "A medical CRM clone designed to better connect patients to their medical providers.",
-    link: "https://medtech.herokuapp.com/",
-    image: require("../../assets/images/projectImages/medTech.png"),
-    git: "https://github.com/joshmatsumoto/medTech",
-  },
-
-  
-  {
-    id: 5,
-    name: "Bullet Journal",
-    description:
-      "A journaling application for individuals who are tired of carrying pen and paper.",
-    link: "https://bullet-journal.herokuapp.com/",
-    image: require("../../assets/images/projectImages/bulletJournal.png"),
-    git: "https://github.com/megellman/bullet-journal",
-  },
-  {
-    id: 6,
-    name: "Bullet Journal",
-    description:
-      "A journaling application for individuals who are tired of carrying pen and paper.",
-    link: "https://bullet-journal.herokuapp.com/",
-    image: require("../../assets/images/projectImages/bulletJournal.png"),
-    git: "https://github.com/megellman/bullet-journal",
-  },
-  {
-    id: 7,
-    name: "Bullet Journal",
-    description:
-      "A journaling application for individuals who are tired of carrying pen and paper.",
-    link: "https://bullet-journal.herokuapp.com/",
-    image: require("../../assets/images/projectImages/bulletJournal.png"),
-    git: "https://github.com/megellman/bullet-journal",
-  },
 ];
 
 
 export default function MyProjects() {
 
   const projectsList = projects.map((project) => (
-    <div style={{ display: "inline-flex" }}>
+    <div key={project.id} style={{ display: "inline-flex" }}>
       <Col>
         <ProjectCards
           name={project.name}
