@@ -1,138 +1,96 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table } from 'rsuite';
 import axios from 'axios';
+import dayjs from 'dayjs';
 
 const { Column, HeaderCell, Cell } = Table;
 
 export default function SiteStats() {
-    // Define state to store the fetched GitHub data
-    const [githubData, setGithubData] = useState([]);
+    const [siteStats, setSiteStats] = useState({
+        stargazers_count: null,
+        forks_count: null,
+        open_issues_count: null,
+        watchers_count: null,
+        updated_at: null,
+    });
 
-    // Define a function to fetch GitHub data from a given link
-    const fetchGithubData = async (link, key) => {
+    const [siteCommits, setSiteCommits] = useState({
+        commits_count: null,
+    });
+
+    const client = axios.create({
+        baseURL: 'https://api.github.com/repos/captaiiinsolo/resumeAndPortfolio',
+    });
+
+    const getSiteStats = async () => {
         try {
-            const response = await axios.get(link, {
-                headers: {
-                    Authorization: 'Bearer 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',
-                },
+            const response = await client.get('');
+            const data = response.data;
+            setSiteStats({
+                stargazers_count: data.stargazers_count,
+                forks_count: data.forks_count,
+                open_issues_count: data.open_issues_count,
+                watchers_count: data.watchers_count,
+                updated_at: data.updated_at,
             });
-            if (response.status === 200) {
-                const data = response.data;
-                const value = data[key];
-                return value;
-            } else {
-                console.error(`Failed to fetch data from ${link}`);
-                return null;
-            }
         } catch (error) {
-            console.error(`Error fetching data from ${link}: ${error}`);
-            return null;
+            console.error('Error fetching GitHub stats:', error);
         }
+        
     };
 
-    // Use useEffect to fetch GitHub data when the component mounts
+    const getSiteCommits = async () => {
+        try {
+            const response = await client.get('/commits');
+            const data = response.data;
+            setSiteCommits({
+                commits_count: data.length,
+            });
+        } catch (error) {
+            console.error('Error fetching GitHub stats:', error);
+        }
+
+    }
+
     useEffect(() => {
-        const fetchData = async () => {
-            const updatedSiteData = [...siteData];
-            for (const item of updatedSiteData) {
-                if (item.link && item.key) {
-                    const value = await fetchGithubData(item.link, item.key);
-                    if (value !== null) {
-                        item.value = value;
-                    }
-                }
-            }
-
-            // Calculate the total number of open issues
-            const openIssuesCount = updatedSiteData.find(item => item.key === 'open_issues_count');
-            if (openIssuesCount) {
-                openIssuesCount.value = await fetchOpenIssuesCount(openIssuesCount.link);
-            }
-
-            const commitsCount = updatedSiteData.find(item => item.key === 'commits_count');
-            if (commitsCount) {
-                commitsCount.value = await fetchCommitsCount(commitsCount.link);
-            }
-
-            setGithubData(updatedSiteData);
-        };
-        fetchData();
+        getSiteStats();
+        getSiteCommits();
     }, []);
 
-    // Define a function to fetch the number of open issues from a GitHub repository
-    const fetchOpenIssuesCount = async (issuesLink) => {
-        try {
-            const response = await axios.get(issuesLink, {
-                headers: {
-                    Authorization: 'Bearer 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',
-                },
-            });
-            if (response.status === 200) {
-                return response.data.length;
-            } else {
-                console.error(`Failed to fetch open issues data from ${issuesLink}`);
-                return null;
-            }
-        } catch (error) {
-            console.error(`Error fetching open issues data from ${issuesLink}: ${error}`);
-            return null;
-        }
-    };
-
-    const fetchCommitsCount = async (commitsLink) => {
-        try {
-            const response = await axios.get(commitsLink, {
-                headers: {
-                    Authorization: 'Bearer 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',
-                },
-            });
-            if (response.status === 200) {
-                return response.data.length;
-            } else {
-                console.error(`Failed to fetch commits data from ${commitsLink}`);
-                return null;
-            }
-        } catch (error) {
-            console.error(`Error fetching commits data from ${commitsLink}: ${error}`);
-            return null;
-        }
-    };
-
-    // Data structure with links to GitHub API and placeholders for values
+    // Data structure with links to GitHub API
     const siteData = [
         {
-            key: 'stargazers_count',
             label: 'Stars on GitHub',
-            link: 'https://api.github.com/repos/captaiiinsolo/resumeAndPortfolio',
-            value: null, // Placeholder for the value
+            value: siteStats.stargazers_count,
         },
         {
-            key: 'forks_count',
             label: 'Forks',
-            link: 'https://api.github.com/repos/captaiiinsolo/resumeAndPortfolio',
-            value: null, // Placeholder for the value
+            value: siteStats.forks_count,
         },
         {
-            key: 'knives_count',
             label: 'Knives',
             value: '2', // Default value
         },
         {
-            key: 'open_issues_count',
             label: 'Open Issues',
-            link: 'https://api.github.com/repos/captaiiinsolo/resumeAndPortfolio/issues',
-            value: null, // Placeholder for the value
+            value: siteStats.open_issues_count,
         },
         {
-            key: 'commits_count',
+            label: 'Watchers',
+            value: siteStats.watchers_count,
+        },
+        {
             label: 'Commits',
-            link: 'https://api.github.com/repos/captaiiinsolo/resumeAndPortfolio/commits',
-            value: null, // Placeholder for the value
+            value: siteCommits.commits_count,
+        },
+        {
+            label: 'Last Updated',
+            value: dayjs(siteStats.updated_at).format('MMMM DD, YYYY'),
         }
     ];
 
     return (
-        <Table bordered cellBordered autoHeight data={githubData}>
+        <Table bordered cellBordered autoHeight data={siteData}>
             <Column flexGrow={1} fullText>
                 <HeaderCell>Site Stats</HeaderCell>
                 <Cell dataKey='label' />

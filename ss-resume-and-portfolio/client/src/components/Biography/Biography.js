@@ -1,4 +1,4 @@
-import { Grid, Row, Col, Placeholder, Panel, Carousel, } from 'rsuite';
+import { Grid, Row, Col, Placeholder, Panel, } from 'rsuite';
 import PersonalStats from '../Stats/Personal/Personal';
 import SiteStats from '../Stats/Site/Site';
 
