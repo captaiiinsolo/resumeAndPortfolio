@@ -57,7 +57,6 @@ export default function SiteStats() {
         getSiteCommits();
     }, []);
 
-    // Data structure with links to GitHub API
     const siteData = [
         {
             label: 'Stars on GitHub',
@@ -90,7 +89,7 @@ export default function SiteStats() {
     ];
 
     return (
-        <Table bordered cellBordered autoHeight data={siteData}>
+        <Table bordered cellBordered autoHeight hover={false} data={siteData}>
             <Column flexGrow={1} fullText>
                 <HeaderCell>Site Stats</HeaderCell>
                 <Cell dataKey='label' />
@@ -98,7 +97,7 @@ export default function SiteStats() {
 
             <Column flexGrow={1} fullText align='right'>
                 <HeaderCell>Value</HeaderCell>
-                <Cell dataKey='value' />
+                <Cell dataKey='value'/> 
             </Column>
         </Table>
     );
