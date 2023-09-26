@@ -32,13 +32,11 @@ export default function DesignProcess() {
   ];
 
   const stepDescriptions = [
-    "I am delighted to offer you the opportunity to schedule a consultation with me to explore your upcoming web project. At your convenience, we can hold this meeting either via video conference or a traditional phone call, tailored to your preference. This consultation serves as an invaluable first step in our collaboration. It allows us to delve into the intricacies of your project, discuss your vision, and ascertain if our expertise aligns with your goals. During our conversation, we will explore the scope of your project, your expectations, and any specific requirements you may have.",
-
-    `Wireframing the Site: To kickstart the design process, we begin with wireframing. This foundational step allows us to outline the structure of your website, defining key elements and their placement. It serves as the blueprint for your site's layout, ensuring an intuitive user experience.
-    Discussing Theme Colors: We understand the significance of color in conveying your brand identity and message. During this phase, we engage in a collaborative discussion to select the perfect theme colors that resonate with your brand and appeal to your target audience. Our goal is to create a visually appealing and cohesive design.`,
-    "",
-    "",
-    "",
+    `A phone or video call scheduled at your convenience.`,
+    `Wireframing > Theme Colors > Key Features > Hierarchy and Naming Conventions`,
+    `I code your project based on the detailed design.`,
+    `I meticulously test every feature of the project.`,
+    `I deliver the code to you.`,
   ];
 
   const onNext = () => onChange(step + 1);
@@ -81,11 +79,11 @@ export default function DesignProcess() {
           </Panel>
           <hr />
           <Panel>
-            <ButtonGroup>
-              <Button appearance='ghost' onClick={onPrev} disabled={step === 0}>
+            <ButtonGroup style={{ margin: '0 45%', display: 'inline-flex'}}>
+              <Button appearance='subtle' onClick={onPrev} disabled={step === 0}>
                 Previous
               </Button>
-              <Button appearance='ghost' onClick={onNext} disabled={step === 4}>
+              <Button appearance='subtle' onClick={onNext} disabled={step === 4}>
                 Next
               </Button>
             </ButtonGroup>

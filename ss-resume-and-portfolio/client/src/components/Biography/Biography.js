@@ -1,4 +1,13 @@
-import { Grid, Row, Col, Placeholder, Panel } from 'rsuite';
+import { Grid, Row, Col, Placeholder, Panel, Carousel, } from 'rsuite';
+import PersonalStats from '../Stats/Personal/Personal';
+
+const styles = {
+  radioGroupLabel: {
+    padding: '8px 12px',
+    display: 'inline-block',
+    verticalAlign: 'middle'
+  }
+};
 
 export default function Biography() {
   return (
@@ -55,9 +64,12 @@ export default function Biography() {
           xsOffset={1}
           style={{ margin: "2rem 1.5rem" }}
         >
-          <Panel>
-            <Placeholder rows={14} />
-          </Panel>
+          
+            <Carousel placement='bottom' shape='bar'>
+              <PersonalStats />
+
+            </Carousel>
+          
         </Col>
         <Col
           xxl={11}

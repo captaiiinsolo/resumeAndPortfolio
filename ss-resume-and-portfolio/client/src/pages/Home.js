@@ -3,8 +3,8 @@ import MainNav from "../components/MainNav/MainNav";
 import { Container, Content, Header } from 'rsuite';
 import Biography from "../components/Biography/Biography";
 import Welcome from "../components/Welcome/Welcome";
-import Stats from "../components/Stats/Stats";
 import DesignProcess from "../components/DesignProcess/DesignProcess";
+import Skills from "../components/Skills/Skills";
 
 
 function Home() {
@@ -18,7 +18,7 @@ function Home() {
           <Content>
             <Welcome />
             <Biography />
-            <Stats />
+            <Skills />
             <DesignProcess />
           </Content>
         </Container>

@@ -14,7 +14,7 @@ const stats = [
     { id: 9, title: "MySQL", percent: "80", color: "#00758F", status: "active", icon: SiMysql },
   ];
 
-export default function Stats() {
+export default function Skills() {
   const style = {
     width: 90,
     display: "inline-block",
