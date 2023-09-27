@@ -5,6 +5,7 @@ import Biography from "../components/Biography/Biography";
 import Welcome from "../components/Welcome/Welcome";
 import DesignProcess from "../components/DesignProcess/DesignProcess";
 import Skills from "../components/Skills/Skills";
+import Footer from "../components/Footer/Footer";
 
 
 function Home() {
@@ -21,6 +22,7 @@ function Home() {
             <Skills />
             <DesignProcess />
           </Content>
+          <Footer />
         </Container>
       </Container>
     </div>
