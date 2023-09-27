@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Schema, ButtonToolbar, Button, Input, Grid, Col, Row, Panel } from "rsuite";
+import { Form, Schema, ButtonToolbar, Button, Input, Grid, Col, Row, Panel, DatePicker } from "rsuite";
 
 const Textarea = React.forwardRef((props, ref) => (
   <Input {...props} as="textarea" ref={ref} />
@@ -61,13 +61,28 @@ function CompanyNameField() {
 function MessageField() {
   return (
     <Form.Group controlId="message-1">
-      <Textarea name="message-1" placeholder="Message" />
+      <Textarea style={{width: 300}} name="message-1" placeholder="Message" />
     </Form.Group>
   );
 }
 
-export default function ContactMeForm() {
+function dateSelector() {
+  return (
+    <DatePicker format="MMMM dd yyyy hh:mm aa" placeholder="Select a callback date and time" showMeridian style={{ width: 300}}/>
+  );
+}
 
+function DateField() {
+  return (
+    <Form.Group controlId="date-1">
+      <Form.Control as={dateSelector}/>
+    </Form.Group>
+  );
+}
+
+
+export default function ContactMeForm() {
+  
   // const [errorVisible, setErrorVisible] = React.useState(false);
   // const [errorPlacement, setErrorPlacement] = React.useState('bottomStart');
   // const errorMessage = errorVisible ? 'This field is required' : null;
@@ -85,6 +100,7 @@ export default function ContactMeForm() {
             <PhoneNumberField />
             <CompanyNameField />
             <MessageField />
+            <DateField />
             <ButtonToolbar style={{ justifyContent: "space-between" }}>
               <Button type="reset" color="red" appearance="subtle">
                 Reset

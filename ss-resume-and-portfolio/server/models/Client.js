@@ -43,14 +43,21 @@ const clientSchema = new Schema(
 
         },
 
+        
         companyName: {
             type: String,
             trim: true
         },
-
+        
         message: {
             type: String,
             trim: true
+        },
+        
+        date: {
+            type: String,
+            required: [true, "A date is required"],
+            trim: true,
         },
     },
     {

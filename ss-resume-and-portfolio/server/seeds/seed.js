@@ -3,6 +3,8 @@ const { Client } = require('../models');
 const { faker } = require('@faker-js/faker');
 const mongoose = require('mongoose');
 
+const dayjs = require('dayjs');
+
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/ss-portfolio-db',); 
@@ -34,6 +36,7 @@ connection.once('open', async () => {
             phone: faker.phone.number('619-###-####'),
             companyName: faker.company.name(),
             message: faker.lorem.paragraphs({min: 1, max: 5}),
+            date: dayjs(faker.date.future()).format('MMMM DD YYYY hh:mm A'),
         });
     }
 
