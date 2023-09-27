@@ -1,6 +1,7 @@
 import { Grid, Row, Col, Placeholder, Panel, } from 'rsuite';
 import PersonalStats from '../Stats/Personal/Personal';
 import SiteStats from '../Stats/Site/Site';
+import Socials from '../Socials/Socials';
 
 export default function Biography() {
   return (
@@ -69,7 +70,7 @@ export default function Biography() {
           style={{ margin: "0rem 1.5rem" }}
         >
           <Panel>
-            <Placeholder rows={13} />
+            <Socials />
 
           </Panel>
         </Col>

@@ -68,7 +68,7 @@ function MessageField() {
 
 function dateSelector() {
   return (
-    <DatePicker format="MMMM dd yyyy hh:mm aa" placeholder="Select a callback date and time" showMeridian style={{ width: 300}}/>
+    <DatePicker format="MMMM dd yyyy hh:mm aa" placeholder="Select a callback date and time" showMeridian placement="autoHorizontalEnd" style={{ width: 300}}/>
   );
 }
 
