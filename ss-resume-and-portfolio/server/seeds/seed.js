@@ -31,7 +31,7 @@ connection.once('open', async () => {
             firstName: faker.person.firstName(),
             lastName: faker.person.lastName(),
             email: faker.internet.email(),
-            phone: faker.phone.number(),
+            phone: faker.phone.number('619-###-####'),
             companyName: faker.company.name(),
             message: faker.lorem.paragraphs({min: 1, max: 5}),
         });
