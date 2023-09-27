@@ -20,6 +20,7 @@ export default function Footer() {
             <IconButton
               icon={<AngleUpIcon />}
               onClick={() => handleOpen("bottom")}
+              appearance="link"
             />
 
             <Drawer

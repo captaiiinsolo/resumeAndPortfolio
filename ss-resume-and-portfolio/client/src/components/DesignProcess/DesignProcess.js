@@ -79,7 +79,7 @@ export default function DesignProcess() {
           </Panel>
           <hr />
           <Panel>
-            <ButtonGroup style={{ margin: '0 45%', display: 'inline-flex'}}>
+            <ButtonGroup style={{ margin: '0 46%', display: 'inline-flex'}}>
               <Button appearance='subtle' onClick={onPrev} disabled={step === 0}>
                 Previous
               </Button>
