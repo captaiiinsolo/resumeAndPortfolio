@@ -28,10 +28,10 @@ const resolvers = {
             return client;
         },
 
-        updateClient: async (parent, {_id, firstName, lastName, email, phone, companyName, message}) => {
+        updateClient: async (parent, {_id, firstName, lastName, }) => {
             return Client.findByIdAndUpdate(
                 _id,
-                { $set: { firstName, lastName, email, phone, companyName, message } },
+                { $set: { firstName, lastName, } },
                 { new: true }
             );
         },

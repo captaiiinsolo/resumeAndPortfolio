@@ -3,7 +3,7 @@ const { Client } = require('../models');
 const { faker } = require('@faker-js/faker');
 const mongoose = require('mongoose');
 
-const dayjs = require('dayjs');
+// const dayjs = require('dayjs');
 
 const connectDB = async () => {
     try {
@@ -29,14 +29,11 @@ connection.once('open', async () => {
 
     for (let i = 0; i < 5; i++) {
         clients.push({
-            userType: 'client',
             firstName: faker.person.firstName(),
             lastName: faker.person.lastName(),
-            email: faker.internet.email(),
-            phone: faker.phone.number('619-###-####'),
-            companyName: faker.company.name(),
-            message: faker.lorem.paragraphs({min: 1, max: 5}),
-            date: dayjs(faker.date.future()).format('MMMM DD YYYY hh:mm A'),
+            // email: faker.internet.email(),
+            // phone: faker.phone.number('619-###-####'),
+            // companyName: faker.company.name(),
         });
     }
 

@@ -5,7 +5,6 @@ import {
   Col,
   Panel,
   Steps,
-  Placeholder,
   Button,
   ButtonGroup,
 } from "rsuite";

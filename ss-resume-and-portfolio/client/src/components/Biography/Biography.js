@@ -60,8 +60,6 @@ export default function Biography() {
         <Col
           xxl={11}
           xl={11}
-          xxlPush={12}
-          xlPush={11}
           lg={22}
           lgOffset={1}
           md={22}
@@ -78,9 +76,7 @@ export default function Biography() {
         </Col>
         <Col
           xxl={11}
-          xxlPull={12}
           xl={11}
-          xlPull={11}
           lg={22}
           md={22}
           sm={22}
