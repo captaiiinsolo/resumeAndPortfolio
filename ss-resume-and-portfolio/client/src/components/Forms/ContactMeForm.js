@@ -13,23 +13,6 @@ import {
 import { CREATE_CLIENT } from "../../utils/Mutations";
 import { useMutation } from "@apollo/client";
 
-const firstNameRule = Schema.Types.StringType().isRequired(
-  "This field is required. Please enter your first name."
-);
-
-const lastNameRule = Schema.Types.StringType().isRequired(
-  "This field is required. Please enter your last name."
-);
-
-const emailRule = Schema.Types.StringType()
-  .isRequired("This field is required. Please enter your email address.")
-  .isEmail("Please enter a valid email address.");
-
-const phoneRule = Schema.Types.StringType()
-  .isRequired("This field is required. Please enter your phone number.")
-  .addRule((value, data) => {
-    return /^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$/.test(value);
-  }, "Please enter a valid phone number.");
 
 export default function ContactMeForm() {
 
@@ -46,12 +29,14 @@ export default function ContactMeForm() {
     };
 
     const handleFormSubmit = async (event) => {
-      event.preventDefailt();
+      // event.preventDefailt();
 
       try {
         const { data } = await createClient({
         variables: { ...FormData },
       });
+
+      console.log(data.createClient.firstName);
     } catch (error) {
       console.log(error);
     }
