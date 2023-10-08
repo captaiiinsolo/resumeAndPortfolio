@@ -74,7 +74,7 @@ const personalData = [
   {
     key: 'States',
     label: 'States Visited',
-    value: '17',
+    value: '18',
     link:
       'https://www.google.com/maps/d/u/0/edit?mid=1am3HkvEd0-G8Ti3i-mG3Ry7CHvS2K2k&ll=37.38490069790931%2C-92.34857596732442&z=5',
   },

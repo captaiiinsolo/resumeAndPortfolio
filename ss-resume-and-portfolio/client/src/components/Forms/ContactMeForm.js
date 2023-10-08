@@ -1,54 +1,33 @@
 import React, { useState } from "react";
 import {
-  Form,
-  Schema,
   ButtonToolbar,
   Button,
-  Input,
   Grid,
   Col,
   Row,
   Panel,
+  Form,
 } from "rsuite";
 import { CREATE_CLIENT } from "../../utils/Mutations";
 import { useMutation } from "@apollo/client";
 
-
 export default function ContactMeForm() {
 
-    const [createClient, { error}] = useMutation(CREATE_CLIENT);
+  const [formState, setFormState] = useState({ firstName: "", lastName: "" });
+  const [createClient] = useMutation(CREATE_CLIENT);
 
-    const [FormData, setFormData] = useState({
-      firstName: "",
-      lastName: "",
-    });
-
-    const handleInputChange = async (event) => {
-      const { name, value } = event.target;
-      setFormData({...FormData, [name]: value });
-    };
-
-    const handleFormSubmit = async (event) => {
-      // event.preventDefailt();
-
-      try {
-        const { data } = await createClient({
-        variables: { ...FormData },
-      });
-
-      console.log(data.createClient.firstName);
-    } catch (error) {
-      console.log(error);
-    }
-
-    };
-  
+  const handleFormSubmit = async (event) => {
+    await createClient({
+      variables: {
+        firstName: formState.firstName,
+        lastName: formState.lastName,
+      },
+    })
+  };
 
   return (
     <Grid fluid>
-      <Row
-        style={{ margin: "3rem", display: "flex", justifyContent: "center" }}
-      >
+      <Row style={{ margin: "3rem", display: "flex", justifyContent: "center" }}>
         <Col
           xxl={8}
           xl={8}
@@ -59,36 +38,20 @@ export default function ContactMeForm() {
           style={{ margin: "3rem 1.5rem" }}
         >
           <h3 style={{ textAlign: "center", margin: "1rem 0" }}> Contact Me</h3>
-          <Panel
-            bordered
-            shaded
-            style={{ display: "flex", justifyContent: "center" }}
-          >
-            <Form layout="horizontal" onSubmit={handleFormSubmit}>
+          <Panel bordered shaded style={{ display: "flex", justifyContent: "center" }}>
+            <Form onSubmit={handleFormSubmit}>
               <Form.Group controlId="firstName">
-                <Form.Control
-                  name="firstName"
-                  placeholder="First Name"
-                  onChange={handleInputChange}
-                />
+                <Form.Control placeholder="First Name" name="firstName" />
               </Form.Group>
               <Form.Group controlId="lastName">
-                <Form.Control
-                  name="lastName"
-                  placeholder="Last Name"
-                  onChange={handleInputChange}
-                />
+                <Form.Control placeholder="Last Name" name="lastName" />
               </Form.Group>
               <Form.Group>
-                <ButtonToolbar style={{ justifyContent: "space-between" }}>
+              <ButtonToolbar style={{ justifyContent: "space-between" }}>
                   <Button type="reset" color="red" appearance="subtle">
                     Reset
                   </Button>
-                  <Button
-                    type="submit"
-                    color="green"
-                    appearance="primary"
-                  >
+                  <Button type="submit" color="green" appearance="primary">
                     Submit
                   </Button>
                 </ButtonToolbar>
