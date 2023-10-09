@@ -1,28 +1,37 @@
 import React, { useState } from "react";
-import {
-  ButtonToolbar,
-  Button,
-  Grid,
-  Col,
-  Row,
-  Panel,
-  Form,
-} from "rsuite";
+import { ButtonToolbar, Button, Grid, Col, Row, Panel, Form } from "rsuite";
 import { CREATE_CLIENT } from "../../utils/Mutations";
 import { useMutation } from "@apollo/client";
 
 export default function ContactMeForm() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+  });
 
-  const [formState, setFormState] = useState({ firstName: "", lastName: "" });
-  const [createClient] = useMutation(CREATE_CLIENT);
+  const [createClient, { error }] = useMutation(CREATE_CLIENT);
+
+  const handleInputChange = (name, value) => {
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleFormSubmit = async (event) => {
-    await createClient({
-      variables: {
-        firstName: formState.firstName,
-        lastName: formState.lastName,
-      },
-    })
+    try {
+      const { data } = await createClient({
+        variables: formData,
+      });
+
+      // Handle the response data if necessary
+      console.log("Client created:", data);
+    } catch (error) {
+      console.error("Error creating client:", error);
+    }
+
+    // Clear form inputs after submission
+    setFormData({
+      firstName: "",
+      lastName: "",
+    });
   };
 
   return (
@@ -41,13 +50,23 @@ export default function ContactMeForm() {
           <Panel bordered shaded style={{ display: "flex", justifyContent: "center" }}>
             <Form onSubmit={handleFormSubmit}>
               <Form.Group controlId="firstName">
-                <Form.Control placeholder="First Name" name="firstName" />
+                <Form.Control
+                  placeholder="First Name"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={(value) => handleInputChange("firstName", value)}
+                />
               </Form.Group>
               <Form.Group controlId="lastName">
-                <Form.Control placeholder="Last Name" name="lastName" />
+                <Form.Control
+                  placeholder="Last Name"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={(value) => handleInputChange("lastName", value)}
+                />
               </Form.Group>
               <Form.Group>
-              <ButtonToolbar style={{ justifyContent: "space-between" }}>
+                <ButtonToolbar style={{ justifyContent: "space-between" }}>
                   <Button type="reset" color="red" appearance="subtle">
                     Reset
                   </Button>
