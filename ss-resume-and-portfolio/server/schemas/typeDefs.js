@@ -5,6 +5,10 @@ const typeDefs = gql`
     _id: ID!
     firstName: String
     lastName: String
+    email: String
+    phone: String
+    companyName: String
+    message: String
     
   }
 
@@ -15,7 +19,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createClient(firstName: String!, lastName: String!): Client
+    createClient(firstName: String!, lastName: String!, email: String!, phone: String!, companyName: String, message: String): Client
     updateClient(_id: ID!, firstName: String, lastName: String): Client
     deleteClient(_id: ID!): Client
   }
