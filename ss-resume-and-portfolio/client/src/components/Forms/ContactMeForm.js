@@ -106,14 +106,12 @@ export default function ContactMeForm() {
               </Form.Group>
 
               <Form.Group controlId="message">
-                <textarea
+                <Input
+                  as="textarea"
                   placeholder="Message"
-                  name="message"
                   rows={5}
-                  value={formData.textarea}
+                  value={formData.message}
                   onChange={(value) => handleInputChange("message", value)}
-                  className="rs-input"
-                  style={{ width: "100%" }}
                 />
               </Form.Group>
 
