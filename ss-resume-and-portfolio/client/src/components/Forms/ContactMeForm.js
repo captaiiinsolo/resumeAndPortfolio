@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ButtonToolbar, Button, Grid, Col, Row, Panel, Form, Input } from "rsuite";
+import { ButtonToolbar, Button, Grid, Col, Row, Panel, Form, Input, Schema, } from "rsuite";
 import { CREATE_CLIENT } from "../../utils/Mutations";
 import { useMutation } from "@apollo/client";
 
@@ -42,6 +42,12 @@ export default function ContactMeForm() {
     });
   };
 
+  // Field level validation rules
+  const firstNameRule = Schema.Types.StringType().isRequired('A first name is required.');
+  const lastNameRule = Schema.Types.StringType().isRequired('A last name is required.');
+  const emailRule = Schema.Types.StringType().isEmail('Please enter a valid email address').isRequired('An email address is required.');
+  const phoneRule = Schema.Types.StringType().isRequired('A phone number is required.').pattern(/^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$/, 'Please use the format: (###)-###-#### or ###-###-####.');
+
   return (
     <Grid fluid>
       <Row
@@ -69,6 +75,7 @@ export default function ContactMeForm() {
                   name="firstName"
                   value={formData.firstName}
                   onChange={(value) => handleInputChange("firstName", value)}
+                  rule={firstNameRule}
                 />
               </Form.Group>
               <Form.Group controlId="lastName">
@@ -77,6 +84,7 @@ export default function ContactMeForm() {
                   name="lastName"
                   value={formData.lastName}
                   onChange={(value) => handleInputChange("lastName", value)}
+                  rule={lastNameRule}
                 />
               </Form.Group>
               <Form.Group controlId="email">
@@ -85,6 +93,7 @@ export default function ContactMeForm() {
                   name="email"
                   value={formData.email}
                   onChange={(value) => handleInputChange("email", value)}
+                  rule={emailRule}
                 />
               </Form.Group>
 
@@ -94,6 +103,7 @@ export default function ContactMeForm() {
                   name="phone"
                   value={formData.phone}
                   onChange={(value) => handleInputChange("phone", value)}
+                  rule={phoneRule}
                 />
               </Form.Group>
               <Form.Group controlId="companyName">

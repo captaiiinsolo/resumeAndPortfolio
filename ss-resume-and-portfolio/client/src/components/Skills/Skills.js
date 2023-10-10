@@ -1,6 +1,8 @@
+import React, { useState, useEffect, useRef } from "react";
 import { Grid, Row, Col, Progress, Panel } from 'rsuite';
 import { Icon } from '@rsuite/icons';
 import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiHtml5, SiJavascript, SiCss3, SiGit, SiMysql } from "react-icons/si";
+import { motion } from 'framer-motion';
 
 const myStats = [
     { id: '01', title: "MongoDB", percent: 80, color: "#00ED64", status: "active", icon: SiMongodb },
@@ -15,6 +17,57 @@ const myStats = [
   ];
 
 export default function Skills() {
+  const [inViewport, setInViewport] = useState(false);
+  const [animationProgress, setAnimationProgress] = useState([]);
+  const statsListRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInViewport(true);
+          } else {
+            setInViewport(false);
+          }
+        });
+      },
+      { threshold: 0.5 } // Change this threshold based on your requirement
+    );
+
+    if (statsListRef.current) {
+      observer.observe(statsListRef.current);
+    }
+
+    return () => {
+      if (statsListRef.current) {
+        observer.unobserve(statsListRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (inViewport) {
+      const interval = setInterval(() => {
+        setAnimationProgress((prevProgress) => {
+          return prevProgress.map((prevSkill, index) => {
+            const targetProgress = myStats[index].percent;
+            const step = 1;
+            return prevSkill + step <= targetProgress ? prevSkill + step : targetProgress;
+          });
+        });
+      }, 50); // Adjust the interval duration for smoother animation
+
+      return () => {
+        clearInterval(interval);
+      };
+    }
+  }, [inViewport]);
+
+  useEffect(() => {
+    setAnimationProgress(Array(myStats.length).fill(0));
+  }, []); // Initialize animationProgress to an array of zeros of the same length as myStats
+
   const style = {
     width: 90,
     display: "inline-block",
@@ -23,14 +76,16 @@ export default function Skills() {
     textAlign: "center",
   };
 
-  const statsList = myStats.map((stat) => (
-    <div style={style} key={stat.id}>
-      <Progress.Circle
-        percent={stat.percent}
-        gapPosition="bottom"
-        strokeColor={stat.color}
-        status={stat.status}
-      />
+  const statsList = myStats.map((stat, index) => (
+    <div style={style} key={stat.id} ref={statsListRef}>
+      <motion.div>
+        <Progress.Circle
+          percent={animationProgress[index]}
+          gapPosition="bottom"
+          strokeColor={stat.color}
+          status={stat.status}
+        />
+      </motion.div>
       <p style={{ margin: "1rem" }}>{stat.title}</p>
       <Icon as={stat.icon} size="2em" style={{ color: stat.color }} />
     </div>

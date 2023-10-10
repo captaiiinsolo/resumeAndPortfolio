@@ -1,6 +1,7 @@
 import { Grid, Row, Col, Panel } from 'rsuite';
 import { Icon } from '@rsuite/icons';
 import { FaGithub, FaMedium, FaTwitter, FaLinkedin } from "react-icons/fa6";
+import { motion } from 'framer-motion';
 
 
 const socialIcons  = [
@@ -41,10 +42,12 @@ const socialIcons  = [
 export default function Socials() {
     const socialsList = socialIcons.map((socialIcon) => (
         <Col lg={12} style={{ padding: '1rem'}}>
+            <motion.div whileHover={{ scale: 1.05}} whileTap={{scale: 0.9}}>
             <Panel shaded style={{ display: 'flex', justifyContent: 'center'}}>                
                 <a  href={socialIcon.link} target='_blank' rel='noreferrer'><Icon color={socialIcon.color} as={socialIcon.icon} style={{ fontSize: '6rem'}} /></a>
                 <h6 style={{ textAlign: 'center'}}>{socialIcon.title}</h6>
             </Panel>
+            </motion.div>
         </Col>
     ));
 
