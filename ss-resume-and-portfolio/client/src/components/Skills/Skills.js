@@ -32,7 +32,7 @@ export default function Skills() {
           }
         });
       },
-      { threshold: 0.5 } // Change this threshold based on your requirement
+      { threshold: 0.5 }
     );
 
     if (statsListRef.current) {
@@ -92,7 +92,8 @@ export default function Skills() {
   ));
 
   return (
-    <Grid fluid>
+    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1}} transition={{ delay: 1, ease: 'easeIn'}}>
+      <Grid fluid>
       <Row style={{ margin: "3rem" }}>
         <Col lg={22} style={{ margin: "1rem 1.5rem" }}>
           <Panel shaded style={{ display: "flex", justifyContent: "center" }}>
@@ -102,5 +103,6 @@ export default function Skills() {
         </Col>
       </Row>
     </Grid>
+    </motion.div>
   );
 }

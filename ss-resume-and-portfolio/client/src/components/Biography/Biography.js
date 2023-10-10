@@ -2,10 +2,13 @@ import { Grid, Row, Col, Panel, } from 'rsuite';
 import PersonalStats from '../Stats/Personal/Personal';
 import SiteStats from '../Stats/Site/Site';
 import Socials from '../Socials/Socials';
+import { motion } from 'framer-motion';
 
 export default function Biography() {
+
   return (
-    <Grid fluid>
+    <motion.div initial={{ opacity: 0}} whileInView={{ opacity: 1}} transition={{ delay: 1, ease: 'easeIn' }}>
+      <Grid fluid>
       <Row style={{ margin: "3rem" }}>
         <Col
           xxl={11}
@@ -89,6 +92,7 @@ export default function Biography() {
         </Col>
       </Row>
     </Grid>
+    </motion.div>
   );
 }
 
