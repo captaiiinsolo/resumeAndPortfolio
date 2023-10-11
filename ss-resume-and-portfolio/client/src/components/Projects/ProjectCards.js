@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button, Panel, Tooltip, Whisper } from "rsuite";
 import ExitIcon from "@rsuite/icons/Exit";
 import { FaGithub } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const ExitToSite = ({ size }) => (
   <ExitIcon style={{ fontSize: size, color: "blue", marginLeft: "5px" }} />
@@ -9,10 +10,11 @@ const ExitToSite = ({ size }) => (
 
 function ProjectCards(props) {
   return (
-    <div
-      style={{
-        margin: '2rem 1rem 2rem 1rem',
-      }}
+       
+    <motion.div 
+      style={{margin: '2rem 1rem 2rem 1rem', display: "inline-flex"}}
+      whileHover={{ scale: 1.05, boxShadow: "10px 10px 10px 5px rgba(0, 0, 0, 0.2)"}}
+      
     >
       <Panel bodyFill shaded style={{ width: 275 }}>
         <img
@@ -55,7 +57,7 @@ function ProjectCards(props) {
           </div>
         </Panel>
       </Panel>
-    </div>
+    </motion.div>
   );
 }
 

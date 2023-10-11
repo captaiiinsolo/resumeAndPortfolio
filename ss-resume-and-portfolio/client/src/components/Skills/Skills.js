@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Grid, Row, Col, Progress, Panel } from 'rsuite';
 import { Icon } from '@rsuite/icons';
 import { SiMongodb, SiExpress, SiReact, SiNodedotjs, SiHtml5, SiJavascript, SiCss3, SiGit, SiMysql } from "react-icons/si";
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 const myStats = [
     { id: '01', title: "MongoDB", percent: 80, color: "#00ED64", status: "active", icon: SiMongodb },
@@ -78,21 +78,18 @@ export default function Skills() {
 
   const statsList = myStats.map((stat, index) => (
     <div style={style} key={stat.id} ref={statsListRef}>
-      <motion.div>
         <Progress.Circle
           percent={animationProgress[index]}
           gapPosition="bottom"
           strokeColor={stat.color}
           status={stat.status}
         />
-      </motion.div>
       <p style={{ margin: "1rem" }}>{stat.title}</p>
       <Icon as={stat.icon} size="2em" style={{ color: stat.color }} />
     </div>
   ));
 
   return (
-    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1}} transition={{ delay: 1, ease: 'easeIn'}}>
       <Grid fluid>
       <Row style={{ margin: "3rem" }}>
         <Col lg={22} style={{ margin: "1rem 1.5rem" }}>
@@ -103,6 +100,5 @@ export default function Skills() {
         </Col>
       </Row>
     </Grid>
-    </motion.div>
   );
 }

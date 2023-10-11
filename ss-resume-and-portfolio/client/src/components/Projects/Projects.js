@@ -1,6 +1,6 @@
 import ProjectCards from './ProjectCards';
 import { Grid, Row, Col } from 'rsuite';
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 
 
@@ -40,7 +40,6 @@ const projects = [
 export default function MyProjects() {
 
   const projectsList = projects.map((project) => (
-    <motion.div key={project.id} style={{ display: "inline-flex" }} whileHover={{ scale: 1.05}}>
       <Col>
         <ProjectCards
           name={project.name}
@@ -50,7 +49,6 @@ export default function MyProjects() {
           git={project.git}
         />
       </Col>
-    </motion.div>
   ));
 
   return (

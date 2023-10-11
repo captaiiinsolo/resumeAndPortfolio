@@ -42,11 +42,13 @@ const socialIcons  = [
 export default function Socials() {
     const socialsList = socialIcons.map((socialIcon) => (
         <Col lg={12} style={{ padding: '1rem'}}>
-            <motion.div whileHover={{ scale: 1.05}} whileTap={{scale: 0.9}}>
+            <motion.div whileHover={{ scale: 1.15, boxShadow: '0px 10px 5px 0px rgba(0, 0, 0, 0.2)'}} whileTap={{scale: 1}}>
+            <a  href={socialIcon.link} target='_blank' rel='noreferrer' style={{color: '#2a3d45', textDecoration: 'none'}}>
             <Panel shaded style={{ display: 'flex', justifyContent: 'center'}}>                
-                <a  href={socialIcon.link} target='_blank' rel='noreferrer'><Icon color={socialIcon.color} as={socialIcon.icon} style={{ fontSize: '6rem'}} /></a>
+                <Icon color={socialIcon.color} as={socialIcon.icon} style={{ fontSize: '6rem'}} />
                 <h6 style={{ textAlign: 'center'}}>{socialIcon.title}</h6>
             </Panel>
+            </a>
             </motion.div>
         </Col>
     ));

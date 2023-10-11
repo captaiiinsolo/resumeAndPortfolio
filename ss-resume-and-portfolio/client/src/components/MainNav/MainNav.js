@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Nav, Sidenav, Sidebar, Navbar } from 'rsuite';
+import { Nav, Sidenav, Sidebar, Navbar, Affix } from 'rsuite';
 import HomeIcon from '@rsuite/icons/legacy/Home';
 import CharacterAuthorizeIcon from '@rsuite/icons/CharacterAuthorize';
 import ProjectIcon from '@rsuite/icons/Project';
@@ -36,6 +36,8 @@ function MainNav() {
 
     return (
       <div style={styles}>
+        <Affix top={0}>
+
         <Sidebar
           style={{ display: "flex", flexDirection: "column" }}
           width={expand ? 160 : 56}
@@ -73,6 +75,7 @@ function MainNav() {
             onChange={() => setExpand(!expand)}
           />
         </Sidebar>
+        </Affix>
       </div>
     );
   };
