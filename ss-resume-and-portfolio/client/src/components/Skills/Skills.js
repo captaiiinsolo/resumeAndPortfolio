@@ -93,7 +93,7 @@ export default function Skills() {
       <Grid fluid>
       <Row style={{ margin: "3rem" }}>
         <Col lg={22} style={{ margin: "1rem 1.5rem" }}>
-          <Panel shaded style={{ display: "flex", justifyContent: "center" }}>
+          <Panel shaded style={{ display: "flex", justifyContent: "center", marginLeft: "2.5rem" }}>
             <h4 style={{ margin: "1rem 0" }}>My Skills</h4>
             {statsList}
           </Panel>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, Grid, Row, Col, Button } from 'rsuite';
 
-export default function Footer() {
+export default function FooterNav() {
   const FooterNav = ({ active, onSelect, ...props }) => {
     return (
       <Nav
@@ -24,8 +24,8 @@ export default function Footer() {
   return (
 
     <Grid fluid>
-      <Row style={{ margin: "2rem" }}>
-        <Col lg={22} style={{ margin: "1rem 1.5rem"}}>
+      <Row style={{ margin: "3rem"}}>
+        <Col style={{ margin: "2rem 1.5rem"}}>
          <FooterNav active={active} onSelect={setActive} appearance='sublte' />
         </Col>
       </Row>
