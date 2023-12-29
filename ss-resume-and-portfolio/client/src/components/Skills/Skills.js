@@ -34,17 +34,20 @@ export default function Skills() {
       },
       { threshold: 0.5 }
     );
-
-    if (statsListRef.current) {
-      observer.observe(statsListRef.current);
+  
+    const statsListCurrent = statsListRef.current; // Capture current value
+  
+    if (statsListCurrent) {
+      observer.observe(statsListCurrent);
     }
-
+  
     return () => {
-      if (statsListRef.current) {
-        observer.unobserve(statsListRef.current);
+      if (statsListCurrent) {
+        observer.unobserve(statsListCurrent);
       }
     };
   }, []);
+  
 
   useEffect(() => {
     if (inViewport) {
@@ -93,7 +96,7 @@ export default function Skills() {
       <Grid fluid>
       <Row style={{ margin: "3rem" }}>
         <Col lg={22} style={{ margin: "1rem 1.5rem" }}>
-          <Panel shaded style={{ display: "flex", justifyContent: "center", marginLeft: "2.5rem" }}>
+          <Panel id='skills' shaded style={{ display: "flex", justifyContent: "center", marginLeft: "2.5rem" }}>
             <h4 style={{ margin: "1rem 0" }}>My Skills</h4>
             {statsList}
           </Panel>

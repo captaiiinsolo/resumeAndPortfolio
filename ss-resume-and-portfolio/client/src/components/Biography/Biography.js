@@ -18,7 +18,7 @@ export default function Biography() {
           xs={22}
           style={{ margin: "2rem 1.5rem" }}
         >
-          <Panel>
+          <Panel id='biography'>
             <h4>Yo! My name is Solomon.</h4>
 
             <p

@@ -45,7 +45,7 @@ export default function DesignProcess() {
     <Grid fluid>
       <Row style={{ margin: "3rem" }}>
         <Col lg={22} style={{ margin: "1rem 1.5rem" }}>
-          <Panel>
+          <Panel id='process'>
             <h4 style={{ margin: "2rem 0" }}>The Process</h4>
             <Steps current={step}>
               <Steps.Item
@@ -70,7 +70,6 @@ export default function DesignProcess() {
               />
             </Steps>
           </Panel>
-          <hr />
           <Panel>
             {/* Step Descriptions Should Render Here When Active */}
             <h5 style={{ margin: '1rem 0'}}>{stepTitles[step]}</h5>
