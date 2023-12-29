@@ -1,6 +1,7 @@
 import React from "react";
 import MainNav from "../components/MainNav/MainNav";
 import ContactMeForm from "../components/Forms/ContactMeForm";
+import FooterNav from "../components/FooterNav/FooterNav";
 import { Container, Content, Footer } from 'rsuite';
 
 function Contact() {
@@ -14,8 +15,10 @@ function Contact() {
             <Content>
               <ContactMeForm />
             </Content>
+          <Footer>
+            <FooterNav />
+          </Footer>
           </Container>
-          <Footer></Footer>
         </Container>
       </div>
     );
