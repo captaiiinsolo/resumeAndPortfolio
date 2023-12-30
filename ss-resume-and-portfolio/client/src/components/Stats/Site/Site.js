@@ -55,7 +55,7 @@ export default function SiteStats() {
     useEffect(() => {
         getSiteStats();
         getSiteCommits();
-    }, []);
+    });
 
     const siteData = [
         {
