@@ -19,7 +19,7 @@ export default function Biography() {
           style={{ margin: "2rem 1.5rem" }}
         >
           <Panel id='biography'>
-            <h4>Yo! My name is Solomon.</h4>
+            <h4>Hello! My name is Solomon.</h4>
 
             <p
               style={{ lineHeight: "1.5", fontSize: "18px", marginTop: "1rem" }}

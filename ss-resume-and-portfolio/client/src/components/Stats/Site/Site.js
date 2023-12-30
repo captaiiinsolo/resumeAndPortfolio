@@ -68,7 +68,7 @@ export default function SiteStats() {
         },
         {
             label: 'Knives',
-            value: '3', // Default value
+            value: '4', // Default value
         },
         {
             label: 'Open Issues',

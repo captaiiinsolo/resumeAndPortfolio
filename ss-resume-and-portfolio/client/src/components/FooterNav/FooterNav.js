@@ -28,7 +28,14 @@ export default function FooterNav() {
   const FooterNav3 = ({ active, onSelect, ...props }) => {
     return (
       <Nav {...props} vertical activeKey={active} onSelect={onSelect}>
-        {/* Add your Nav.Items here */}
+        <Nav.Item href='https://rsuitejs.com/' eventKey='9' target='_blank'>React Suite</Nav.Item>
+        <Nav.Item href='https://react-type-animation.netlify.app/' eventKey='10' target='_blank'>React Type Animation</Nav.Item>
+        <Nav.Item href='https://react-pdf.org/' eventKey='11' target='_blank'>React PDF</Nav.Item>
+        <Nav.Item href='https://www.framer.com/motion/' eventKey='12' target='_blank'>Framer Motion</Nav.Item>
+        <Nav.Item href='https://day.js.org/' eventKey='13' target='_blank'>Day.js</Nav.Item>
+        <Nav.Item href='https://graphql.org/' eventKey='14' target='_blank'>GraphQL</Nav.Item>
+        <Nav.Item href='https://axios-http.com/' eventKey='15' target='_blank'>Axios</Nav.Item>
+        <Nav.Item href='https://react-icons.github.io/react-icons/' eventKey='16' target='_blank'>React Icons</Nav.Item>
       </Nav>
     );
   };
@@ -38,7 +45,7 @@ export default function FooterNav() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <Grid fluid style={{ paddingBottom: "60px" }}>
+    <Grid fluid style={{ marginTop: '2.5rem', paddingBottom: '2.5rem' }}>
       <Row style={{display: 'flex', justifyContent: 'center'}}>
         <Col>
           {/* Drawer */}

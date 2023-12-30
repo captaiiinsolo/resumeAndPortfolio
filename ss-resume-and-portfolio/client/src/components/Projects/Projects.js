@@ -34,6 +34,25 @@ const projects = [
     image: require("../../assets/images/projectImages/fullSpectrum.png"),
     git: "https://github.com/captaiiinsolo/jobDashboardProject",
   },
+
+  {
+    id: 4,
+    name: "Weather Dashboard",
+    description:
+      "A weather dashboard application that allows users to search for a city and see the current weather conditions.",
+    link: 'https://captaiiinsolo.github.io/weatherDashboard/',
+    image: require("../../assets/images/projectImages/weatherDashboard.png"),
+    git: 'https://github.com/captaiiinsolo/weatherDashboard',
+  },
+
+  {
+    id: 5,
+    name: 'JavaScript Quiz App',
+    description: 'A simple JavaScript quiz app built with HTML, CSS, and JavaScript.',
+    link: 'https://captaiiinsolo.github.io/javaScriptQuiz/',
+    image: require("../../assets/images/projectImages/javaScriptQuiz.png"),
+    git: 'https://github.com/captaiiinsolo/javaScriptQuiz',
+  },
 ];
 
 

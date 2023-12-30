@@ -64,7 +64,7 @@ const personalData = [
   {
     key: 'City',
     label: 'Current City',
-    value: 'San Diego',
+    value: 'San Clemente',
   },
   {
     key: 'State',
