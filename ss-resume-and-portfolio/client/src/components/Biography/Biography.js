@@ -26,7 +26,7 @@ export default function Biography() {
             >
               As an accomplished artist and skilled developer, I bring a unique
               perspective to the tech industry. My passion for creativity and
-              innovation has been shaped by my Associate of Fine Arts Degree
+              innovation has been shaped by my Bachelor of Fine Arts Degree
               from the Academy of Art University and my Certificate of
               Completion from the UC Berkeley Coding Bootcamp. With a strong
               foundation in design and programming, I excel at building

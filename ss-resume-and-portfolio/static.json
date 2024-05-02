@@ -1,0 +1,10 @@
+{
+    "root": "build/",
+    "routes": {
+      "/resume": "index.html",
+      "/projects": "index.html",
+      "/contact-me": "index.html",
+      "/": "index.html"
+    }
+  }
+  

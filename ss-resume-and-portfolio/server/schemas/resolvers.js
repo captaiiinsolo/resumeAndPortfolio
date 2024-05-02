@@ -1,5 +1,5 @@
 const { Client } = require('../models');
-const { findByIdAndRemove, findByIdAndUpdate } = require('../models/client');
+const { findByIdAndRemove, findByIdAndUpdate } = require('../models/Client');
 
 
 const resolvers = {

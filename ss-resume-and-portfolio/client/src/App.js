@@ -4,10 +4,15 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Project from './pages/Project';
 import Resume from './pages/Resume';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
+// import { setContext } from 'apollo-link-context';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql',
+  link: httpLink,
   cache: new InMemoryCache(),
 });
 

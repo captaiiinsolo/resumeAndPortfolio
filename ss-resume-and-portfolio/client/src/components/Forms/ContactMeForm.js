@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ButtonToolbar, Button, Grid, Col, Row, Panel, Form, Input, Schema, } from "rsuite";
+import { ButtonToolbar, Button, Grid, Col, Row, Panel, Form, Input, Schema, Modal } from "rsuite";
 import { CREATE_CLIENT } from "../../utils/Mutations";
 import { useMutation } from "@apollo/client";
 
@@ -13,25 +13,26 @@ export default function ContactMeForm() {
     message: "",
   });
 
-  const [createClient, { error }] = useMutation(CREATE_CLIENT);
+  const [createClient] = useMutation(CREATE_CLIENT);
+  const [showModal, setShowModal] = useState(false);
 
   const handleInputChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
+
     try {
       const { data } = await createClient({
         variables: formData,
       });
 
-      // Handle the response data if necessary
       console.log("Client created:", data);
+      setShowModal(true);
     } catch (error) {
       console.error("Error creating client:", error);
     }
 
-    // Clear form inputs after submission
     setFormData({
       firstName: "",
       lastName: "",
@@ -47,6 +48,25 @@ export default function ContactMeForm() {
   const lastNameRule = Schema.Types.StringType().isRequired('A last name is required.');
   const emailRule = Schema.Types.StringType().isEmail('Please enter a valid email address').isRequired('An email address is required.');
   const phoneRule = Schema.Types.StringType().isRequired('A phone number is required.').pattern(/^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$/, 'Please use the format: (###)-###-#### or ###-###-####.');
+
+  // Modal on Successful Submission
+  const ModalSuccess = ({ showModal }) => {
+    const handleClose = () => setShowModal(false);
+
+    return (
+      <>
+        <Modal backdrop='static' role='alertdialog' open={showModal} onClose={handleClose} size='xs'>
+          <Modal.Body>
+            <h6 style={{ textAlign: 'center', margin: "1rem 0" }}> Thank you for reaching out!</h6>
+            <p style={{ textAlign: 'left', margin: "1rem 0" }}> I will review your request and will get back to you within 3-5 business days.</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={handleClose}>OK</Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    )
+  }
 
   return (
     <Grid fluid>
@@ -139,6 +159,7 @@ export default function ContactMeForm() {
           </Panel>
         </Col>
       </Row>
+      <ModalSuccess showModal={showModal} />
     </Grid>
   );
 }
